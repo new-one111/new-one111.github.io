@@ -22,28 +22,34 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="RufuLearning">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="A NEW BLOG">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo博客搭建上线">
+<meta property="og:url" content="http://example.com/2022/03/03/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E4%B8%8A%E7%BA%BF/index.html">
 <meta property="og:site_name" content="RufuLearning">
+<meta property="og:description" content="A NEW BLOG">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="c:/Users/CHEN/AppData/Roaming/Typora/typora-user-images/image-20220303203724216.png">
+<meta property="article:published_time" content="2022-03-03T14:49:21.418Z">
+<meta property="article:modified_time" content="2022-03-03T13:40:40.635Z">
 <meta property="article:author" content="RUFU">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:/Users/CHEN/AppData/Roaming/Typora/typora-user-images/image-20220303203724216.png">
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/2022/03/03/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E4%B8%8A%E7%BA%BF/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>RufuLearning</title>
+  <title>Hexo博客搭建上线 | RufuLearning</title>
   
 
 
@@ -179,9 +185,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -197,10 +204,9 @@
       <meta itemprop="name" content="RufuLearning">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/03/03/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E4%B8%8A%E7%BA%BF/" class="post-title-link" itemprop="url">Hexo博客搭建上线</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          Hexo博客搭建上线
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -247,36 +253,103 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>A NEW BLOG</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/03/03/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E4%B8%8A%E7%BA%BF/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
+        <p>A NEW BLOG</p>
+<span id="more"></span>
+
+<h1 id="Hexo博客搭建上线"><a href="#Hexo博客搭建上线" class="headerlink" title="Hexo博客搭建上线"></a>Hexo博客搭建上线</h1><p>原博客 传送门 <a target="_blank" rel="noopener" href="https://new-one111.github.io/">【  <strong>TP  】</strong></a>  </p>
+<h1 id="部署环境"><a href="#部署环境" class="headerlink" title="部署环境"></a>部署环境</h1><blockquote>
+<p>首先 安装node js </p>
+<p>网址：nodejs.org</p>
+</blockquote>
+<p>下载安装完成，运行 cmd 管理员模式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 检测nodejs是否成功</span><br><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+
+<p>npm 安装太慢 ，安装cnpm镜像</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+
+<p>查看cnpm版本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm -v</span><br></pre></td></tr></table></figure>
+
+<h1 id="安装hexo框架"><a href="#安装hexo框架" class="headerlink" title="安装hexo框架"></a>安装hexo框架</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<p>查看hexo版本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
+
+<p>建立blog文件夹</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#windows直接新建 然后命令行找到 blog文件</span><br><span class="line">cd blog</span><br></pre></td></tr></table></figure>
+
+<p>在blog路径下  注意是 <code>blog路径</code> 下运行 cmd</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+
+<p>完成后可以使用 dir 查看生成的文件夹</p>
+<p>安装git插件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure>
+
+<p>更改 blog 路径下的 _config 文件，直接vscode打开</p>
+<p>修改最后的 代码为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">	type: git</span><br><span class="line">	repo: # 路径如下图 https(gitee) 若部署到 github就是 yourname.github.io.git</span><br><span class="line">	branch: master</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\CHEN\AppData\Roaming\Typora\typora-user-images\image-20220303203724216.png" alt="image-20220303203724216"></p>
+<h1 id="部署到远端"><a href="#部署到远端" class="headerlink" title="部署到远端"></a>部署到远端</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g # 生成网页静态文件</span><br><span class="line">hexo s # 预览，可不执行 本地端口 http://localhost:4000/</span><br><span class="line">hexo d # 向远端推数据文件</span><br></pre></td></tr></table></figure>
+
+<h1 id="安装-next-主题"><a href="#安装-next-主题" class="headerlink" title="安装 next 主题"></a>安装 next 主题</h1><p>通过Git来安装</p>
+<blockquote>
+<p>首先在 hexo 站点路径下打开 cmd </p>
+<blockquote>
+<p>输入 <code> git clone https://github.com/theme-next/hexo-theme-next themes/next</code> 这是更新后的的 next 主题</p>
+<blockquote>
+<p>启用 next 在站点_config文件中修改</p>
+<p>theme: next</p>
+<p>至此、主题启用成功</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>详情 ：Next使用手册 ：<a target="_blank" rel="noopener" href="http://theme-next.iissnan.com/getting-started.html">http://theme-next.iissnan.com/getting-started.html</a></p>
+
     </div>
 
     
     
     
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="RUFU 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="RUFU 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
+
+        
+
+
+        
       </footer>
+    
   </article>
   
   
   
 
 
-  
-
-
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -323,6 +396,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E4%B8%8A%E7%BA%BF"><span class="nav-number">1.</span> <span class="nav-text">Hexo博客搭建上线</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2%E7%8E%AF%E5%A2%83"><span class="nav-number">2.</span> <span class="nav-text">部署环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85hexo%E6%A1%86%E6%9E%B6"><span class="nav-number">3.</span> <span class="nav-text">安装hexo框架</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2%E5%88%B0%E8%BF%9C%E7%AB%AF"><span class="nav-number">4.</span> <span class="nav-text">部署到远端</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-next-%E4%B8%BB%E9%A2%98"><span class="nav-number">5.</span> <span class="nav-text">安装 next 主题</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
