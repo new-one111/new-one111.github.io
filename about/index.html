@@ -593,7 +593,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"题解","value":10},{"name":"算法","value":7},{"name":"博客搭建","value":1},{"name":"数据结构","value":1}],
+                data: [{"name":"算法","value":7},{"name":"题解","value":10},{"name":"博客搭建","value":1},{"name":"数据结构","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -617,7 +617,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["数论","模拟","栈","递归","散记","暴力","字符串模拟","动态规划","GCD","大顶堆"]
+                data: ["数论","模拟","栈","递归","散记","暴力","字符串模拟","动态规划","大顶堆","GCD"]
             }
         ],
         yAxis: [
@@ -748,26 +748,26 @@
         <div class="tag-chips center-align">
             
             
-            <a href="/tags/%E6%95%B0%E8%AE%BA/">
-                <span class="chip center-align waves-effect waves-light chip-default">数论</span>
-            </a>
-            
-            
-            
             <a href="/tags/%E6%95%A3%E8%AE%B0/">
                 <span class="chip center-align waves-effect waves-light chip-default">散记</span>
             </a>
             
             
             
-            <a href="/tags/%E6%A8%A1%E6%8B%9F/">
-                <span class="chip center-align waves-effect waves-light chip-default">模拟</span>
+            <a href="/tags/%E6%95%B0%E8%AE%BA/">
+                <span class="chip center-align waves-effect waves-light chip-default">数论</span>
             </a>
             
             
             
             <a href="/tags/%E6%9A%B4%E5%8A%9B/">
                 <span class="chip center-align waves-effect waves-light chip-default">暴力</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E6%A8%A1%E6%8B%9F/">
+                <span class="chip center-align waves-effect waves-light chip-default">模拟</span>
             </a>
             
             
@@ -790,8 +790,8 @@
             
             
             
-            <a href="/tags/GCD/">
-                <span class="chip center-align waves-effect waves-light chip-default">GCD</span>
+            <a href="/tags/%E9%80%92%E5%BD%92/">
+                <span class="chip center-align waves-effect waves-light chip-default">递归</span>
             </a>
             
             
@@ -802,8 +802,8 @@
             
             
             
-            <a href="/tags/%E9%80%92%E5%BD%92/">
-                <span class="chip center-align waves-effect waves-light chip-default">递归</span>
+            <a href="/tags/GCD/">
+                <span class="chip center-align waves-effect waves-light chip-default">GCD</span>
             </a>
             
             
@@ -1125,13 +1125,55 @@ $(function () {
     </a>
 </div>
 
-
+    <script src="/js/FunnyTitle.js"></script>
     <script src="/libs/materialize/materialize.min.js"></script>
     <script src="/libs/masonry/masonry.pkgd.min.js"></script>
     <script src="/libs/aos/aos.js"></script>
     <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
     <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
     <script src="/js/matery.js"></script>
+
+
+    
+<!-- 白天和黑夜主题 -->
+<div class="sum-moon-box">
+  <a class="btn-floating btn-large waves-effect waves-light" οnclick="switchNightMode()" title="切换主题" >
+    <i id="sum-moon-icon" class="fas fa-sun" style="width:48px; height:48px; font-size: 28px;"></i>
+  </a>
+</div>
+
+<div class="stars-con">
+  <div id="stars"></div>
+  <div id="stars2"></div>
+  <div id="stars3"></div>  
+</div>
+
+<script>
+  function switchNightMode() {
+    $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+      setTimeout(function () {
+        $('body').hasClass('DarkMode') 
+        ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+        : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+          
+        setTimeout(function () {
+          $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+            $(this).remove()
+          })
+        }, 2e3)
+      })
+  }
+</script>
+
+    <script>
+        if (localStorage.getItem('isDark') === '1') {
+            document.body.classList.add('DarkMode');
+            $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')
+        } else {
+            document.body.classList.remove('DarkMode');
+            $('#sum-moon-icon').removeleClass("fa-sun").addClass('fa-moon')
+        }
+    </script>
 
     
 

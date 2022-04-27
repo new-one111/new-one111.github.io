@@ -368,19 +368,28 @@
             <div class="tag-chips">
                 
                 
+                <a href="/tags/%E6%95%A3%E8%AE%B0/" title="散记: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="散记" style="background-color: #F9EBEA;">散记
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
                 <a href="/tags/%E6%95%B0%E8%AE%BA/" title="数论: 4">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="数论" style="background-color: #F9EBEA;">数论
+                            data-tagname="数论" style="background-color: #F5EEF8;">数论
                         <span class="tag-length">4</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/%E6%95%A3%E8%AE%B0/" title="散记: 1">
+                <a href="/tags/%E6%9A%B4%E5%8A%9B/" title="暴力: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="散记" style="background-color: #F5EEF8;">散记
+                            data-tagname="暴力" style="background-color: #D5F5E3;">暴力
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -389,17 +398,8 @@
                 <a href="/tags/%E6%A8%A1%E6%8B%9F/" title="模拟: 3">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="模拟" style="background-color: #D5F5E3;">模拟
+                            data-tagname="模拟" style="background-color: #E8F8F5;">模拟
                         <span class="tag-length">3</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E6%9A%B4%E5%8A%9B/" title="暴力: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="暴力" style="background-color: #E8F8F5;">暴力
-                        <span class="tag-length">1</span>
                     </span>
                 </a>
                 
@@ -431,11 +431,11 @@
                 </a>
                 
                 
-                <a href="/tags/GCD/" title="GCD: 1">
+                <a href="/tags/%E9%80%92%E5%BD%92/" title="递归: 2">
                     <span class="chip center-align waves-effect waves-light
-                             chip-active "
-                            data-tagname="GCD" style="background-color: #D7BDE2;">GCD
-                        <span class="tag-length">1</span>
+                             chip-default "
+                            data-tagname="递归" style="background-color: #D7BDE2;">递归
+                        <span class="tag-length">2</span>
                     </span>
                 </a>
                 
@@ -449,11 +449,11 @@
                 </a>
                 
                 
-                <a href="/tags/%E9%80%92%E5%BD%92/" title="递归: 2">
+                <a href="/tags/GCD/" title="GCD: 1">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="递归" style="background-color: #85C1E9;">递归
-                        <span class="tag-length">2</span>
+                             chip-active "
+                            data-tagname="GCD" style="background-color: #85C1E9;">GCD
+                        <span class="tag-length">1</span>
                     </span>
                 </a>
                 
@@ -773,13 +773,55 @@ $(function () {
     </a>
 </div>
 
-
+    <script src="/js/FunnyTitle.js"></script>
     <script src="/libs/materialize/materialize.min.js"></script>
     <script src="/libs/masonry/masonry.pkgd.min.js"></script>
     <script src="/libs/aos/aos.js"></script>
     <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
     <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
     <script src="/js/matery.js"></script>
+
+
+    
+<!-- 白天和黑夜主题 -->
+<div class="sum-moon-box">
+  <a class="btn-floating btn-large waves-effect waves-light" οnclick="switchNightMode()" title="切换主题" >
+    <i id="sum-moon-icon" class="fas fa-sun" style="width:48px; height:48px; font-size: 28px;"></i>
+  </a>
+</div>
+
+<div class="stars-con">
+  <div id="stars"></div>
+  <div id="stars2"></div>
+  <div id="stars3"></div>  
+</div>
+
+<script>
+  function switchNightMode() {
+    $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+      setTimeout(function () {
+        $('body').hasClass('DarkMode') 
+        ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+        : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+          
+        setTimeout(function () {
+          $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+            $(this).remove()
+          })
+        }, 2e3)
+      })
+  }
+</script>
+
+    <script>
+        if (localStorage.getItem('isDark') === '1') {
+            document.body.classList.add('DarkMode');
+            $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')
+        } else {
+            document.body.classList.remove('DarkMode');
+            $('#sum-moon-icon').removeleClass("fa-sun").addClass('fa-moon')
+        }
+    </script>
 
     
 
