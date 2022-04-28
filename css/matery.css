@@ -39,7 +39,6 @@ body {
     color: #34495e;
     overflow-x: hidden;
     overflow-y: auto;
-    /*opacity: 0.7;*/
 }
 
 h1 {
@@ -242,8 +241,7 @@ mark {
 }
 
 .bg-color {
-    background-image: linear-gradient(to right, #87CEFA 0%, #6A5ACD 100%);
-    opacity: 0.9;
+    background-image: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
 }
 
 .text-color {
@@ -595,7 +593,7 @@ header .go-back i {
     font-weight: 400;
 }
 
-/*@-webkit-keyframes rainbow {
+@-webkit-keyframes rainbow {
 
     0%,
     100% {
@@ -685,12 +683,11 @@ header .go-back i {
         background: -moz-linear-gradient(135deg, rgba(233, 30, 99, 0.75) 0%, rgba(233, 30, 99, 0.65) 100%);
         background: -webkit-linear-gradient(135deg, rgba(2233, 30, 99, 0.75) 0%, rgba(233, 30, 99, 0.65) 100%);
     }
-}*/
+}
 
 .index-card {
     margin-top: -10px;
     padding-top: 20px;
-    opacity: 0.4;
 }
 
 .carousel-post .title {
@@ -868,7 +865,6 @@ header .go-back i {
 #articles {
     margin-top: 10px;
     margin-bottom: 10px;
-    opacity: 0.9;
 }
 
 article a {
@@ -1007,7 +1003,6 @@ article .article-tags .chip {
 /*文章详情样式*/
 #artDetail {
     margin-top: -60px;
-    opacity: 0.7;
 }
 
 /* 修改小屏幕下文章详情table样式. */
