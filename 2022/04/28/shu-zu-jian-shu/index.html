@@ -4,12 +4,19 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="链式向前星, RufuCodeZone">
-    <meta name="description" content="存储图，通常会使用邻接表，邻接矩阵来存储图。邻接矩阵易于实现，但操作不便，邻接表实现起来较复杂，但易于操作。这里介绍一种简单，折中的存储方式 
-——链式向前星
+    <meta name="keywords" content="数组建树, RufuCodeZone">
+    <meta name="description" content="如题（—&amp;amp;—）
 
 
-链式向前星数组模拟邻接表链式向前星的实质就是用数组模拟邻接表，邻接表是带头结">
+
+
+
+给定一个中序序列 + 先序序列，建立一棵二叉树层序输出
+给定一个中序序列 + 后续序列，建立一棵二叉树层序输出
+给定一个序列建立一个完全二叉树
+
+#include &amp;lt;iostream&amp;gt;
+#inc">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -23,7 +30,7 @@
 
     
 
-    <title>链式向前星 | RufuCodeZone</title>
+    <title>数组建树 | RufuCodeZone</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -252,12 +259,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">链式向前星</h1>
+                    <h1 class="description center-align post-title">数组建树</h1>
                 </div>
             </div>
         </div>
@@ -371,13 +378,9 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/%E5%9B%BE/">
-                                <span class="chip bg-color">图</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -398,28 +401,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-04-27
+                    2022-04-28
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-05
+                    2022-04-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    399
+                    359
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -442,68 +445,83 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>存储图，通常会使用邻接表，邻接矩阵来存储图。邻接矩阵易于实现，但操作不便，邻接表实现起来较复杂，但易于操作。这里介绍一种简单，折中的存储方式 </p>
-<p>——链式向前星</p>
+                <p>如题（—&amp;—）</p>
 <span id="more"></span>
 
-<h1 id="链式向前星"><a href="#链式向前星" class="headerlink" title="链式向前星"></a>链式向前星</h1><h2 id="数组模拟邻接表"><a href="#数组模拟邻接表" class="headerlink" title="数组模拟邻接表"></a>数组模拟邻接表</h2><p>链式向前星的实质就是用数组模拟邻接表，邻接表是带头结点数组的链表，需要结合结构体指针来实现，实现起来比较复杂。</p>
-<p>用 head 数组来存 head[i] = j 即 以 i 为端点的 第 j 条边， next 存的是 这条边的 <strong>起始端点</strong>，to 存的是 <strong>末端点</strong></p>
-<p>例如存如下图（边的两端）</p>
-<pre class="line-numbers language-none"><code class="language-none">1 2
-1 3
-2 4
-2 5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>head[1] = 2, next[1] = -1, next[2] = 1, to[1] = 2, to[2] = 3;</p>
-<p>head[2] = 4, next[3] = -1, next[4] = 4, to[3] = 4, to[4] = 5;</p>
-<pre class="line-numbers language-none"><code class="language-none">head 初始化为 -1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><pre class="line-numbers language-none"><code class="language-none">// 写法 1 
-// N 为节点数, M 为边数
-struct node{
-    int next,to,w;
-}edge[M];
-int head[N],idx = 1;
-void add(int a,int b,int c){
-    edge[idx].to = b;
-    edge[idx].next = head[a];
-    edge[idx].w = c;
-    head[a] = idx ++;
+<ul>
+<li><a target="_blank" rel="noopener" href="https://pintia.cn/problem-sets/994805046380707840/problems/994805065406070784">给定一个中序序列 + 先序序列，建立一棵二叉树层序输出</a></li>
+<li><a target="_blank" rel="noopener" href="https://pintia.cn/problem-sets/994805046380707840/problems/994805069361299456">给定一个中序序列 + 后续序列，建立一棵二叉树层序输出</a></li>
+<li><a target="_blank" rel="noopener" href="https://pintia.cn/problem-sets/994805046380707840/problems/1336215880692482058">给定一个序列建立一个完全二叉树</a></li>
+</ul>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include &lt;iostream&gt;
+#include &lt;queue&gt;
+
+using namespace std;
+const int MaxN = 1e5 + 10;
+
+int n,preorder[MaxN],postorder[MaxN],inorder[MaxN];
+
+struct TreeNode {
+    int val;
+    TreeNode *r,*l;
+    TreeNode(int data) : val(data),l(NULL),r(NULL) {}
+};
+
+TreeNode *buildTree_with_postorder(int inB,int inE,int postB,int postE) {
+    int i = 0;
+    TreeNode* root = new TreeNode(0);
+    root -&gt; val = postorder[postE];
+    while(inorder[inB + i] != root -&gt; val) i ++;
+    if(i &gt; 0)  root -&gt; l = buildTree_with_postorder(inB, inB + i - 1, postB, postB + i - 1); // 左子树存在
+
+    if(inB + i &lt; inE)  root -&gt; r = buildTree_with_postorder(inB + i + 1, inE, postB + i, postE - 1); // 右子树存在
+
+    return root;
 }
-//初始化
-void init()
-{
-    memset(head,-1,sizeof(head));
+
+TreeNode *buildTree_with_preorder(int preB,int preE,int inB,int inE) {
+    int i = 0;
+    TreeNode* root = new TreeNode(0);
+    root -&gt; val = preorder[preB];
+    while(inorder[inB + i] != root -&gt; val) i ++;
+    
+    if(i &gt; 0) root -&gt; l = buildTree_with_preorder(preB + 1,preB + i,inB,inB + i - 1);
+
+    if(i + inB &lt; inE) root -&gt; r = buildTree_with_preorder(preB + i + 1, preE, inB + i + 1, inE);
+    
+    return root;
 }
-int main()
-{
-    cin &gt;&gt; N;
-    // 添加数据
-    add(a,b,c);
-    // 遍历图
-    for(int i = head[1]; ~i ;i = edge[i].next){
-        cout &lt;&lt; i &lt;&lt; "-&gt;" &lt;&lt; edge[i].to &lt;&lt; endl;
-        // operation
+
+
+void level_print(TreeNode *t) {
+    queue&lt;TreeNode*&gt; q;
+    q.push(t);
+    while(!q.empty()) {
+        t = q.front();
+        q.pop();
+        cout &lt;&lt; t-&gt;val &lt;&lt; " ";
+        if(t -&gt; r) q.push(t -&gt; r);
+        if(t -&gt; l) q.push(t -&gt; l);
     }
-    return 0;
 }
-// 写法 2
-int head[N],ne[M],e[M],w[M],idx = 1;
-void add(int a,int b,int c){
-    e[idx] = b;
-    ne[idx] = head[a];
-    w[idx] = c;
-    head[a] = idx ++;
-}
+
 int main()
 {
-    memset(head,-1,sizeof(head));
-    for(int i = head[1]; ~i ;i = ne[i]){
-        cout &lt;&lt; i &lt;&lt; "-&gt;" &lt;&lt; e[i] &lt;&lt; endl;
-        // operation
-    }    
+    cin &gt;&gt; n;
+    // for(int i = 0;i &lt; n;i ++) cin &gt;&gt; postorder[i];
+    for(int i = 0;i &lt; n;i ++) cin &gt;&gt; inorder[i];
+    for(int i = 0;i &lt; n;i ++) cin &gt;&gt; preorder[i];
+    
+    // TreeNode *t = buildTree_with_postorder(0,n - 1,0,n - 1);
+    TreeNode *t = buildTree_with_preorder(0,n - 1,0,n - 1);
+
+    level_print(t);
     return 0;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
                 
             </div>
             <hr/>
@@ -529,7 +547,7 @@ int main()
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://rufu.space/2022/04/27/lian-shi-xiang-qian-xing/">http://rufu.space/2022/04/27/lian-shi-xiang-qian-xing/</a>
+                    <a href="http://rufu.space/2022/04/28/shu-zu-jian-shu/">http://rufu.space/2022/04/28/shu-zu-jian-shu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -566,11 +584,7 @@ int main()
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/%E5%9B%BE/">
-                                    <span class="chip bg-color">图</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -1008,9 +1022,52 @@ int main()
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2022/04/28/shu-zu-jian-shu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="数组建树">
+                        
+                        <span class="card-title">数组建树</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            如题（—&amp;—）
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-28
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
+                                    数据结构
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2022/04/27/gao-jing/">
                     <div class="card-image">
@@ -1034,59 +1091,6 @@ int main()
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-27
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E9%AB%98%E7%B2%BE%E5%BA%A6/">
-                        <span class="chip bg-color">高精度</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2022/04/27/di-gui-zhi-pai-lie-zu-he/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="递归之排列组合枚举">
-                        
-                        <span class="card-title">递归之排列组合枚举</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-递归实现指数型枚举
-递归实现组合型枚举
-递归实现排列型枚举
-
-                        
-                    </div>
-                    <div class="publish-info">
                             <span class="publish-date">
                                 <i class="far fa-clock fa-fw icon-date"></i>2022-04-27
                             </span>
@@ -1105,8 +1109,8 @@ int main()
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E9%80%92%E5%BD%92/">
-                        <span class="chip bg-color">递归</span>
+                    <a href="/tags/%E9%AB%98%E7%B2%BE%E5%BA%A6/">
+                        <span class="chip bg-color">高精度</span>
                     </a>
                     
                 </div>

@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>数组建树</title>
+      <link href="/2022/04/28/shu-zu-jian-shu/"/>
+      <url>/2022/04/28/shu-zu-jian-shu/</url>
+      
+        <content type="html"><![CDATA[<p>如题（—&amp;—）</p><span id="more"></span><ul><li><a href="https://pintia.cn/problem-sets/994805046380707840/problems/994805065406070784">给定一个中序序列 + 先序序列，建立一棵二叉树层序输出</a></li><li><a href="https://pintia.cn/problem-sets/994805046380707840/problems/994805069361299456">给定一个中序序列 + 后续序列，建立一棵二叉树层序输出</a></li><li><a href="https://pintia.cn/problem-sets/994805046380707840/problems/1336215880692482058">给定一个序列建立一个完全二叉树</a></li></ul><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include &lt;iostream&gt;#include &lt;queue&gt;using namespace std;const int MaxN = 1e5 + 10;int n,preorder[MaxN],postorder[MaxN],inorder[MaxN];struct TreeNode {    int val;    TreeNode *r,*l;    TreeNode(int data) : val(data),l(NULL),r(NULL) {}};TreeNode *buildTree_with_postorder(int inB,int inE,int postB,int postE) {    int i = 0;    TreeNode* root = new TreeNode(0);    root -&gt; val = postorder[postE];    while(inorder[inB + i] != root -&gt; val) i ++;    if(i &gt; 0)  root -&gt; l = buildTree_with_postorder(inB, inB + i - 1, postB, postB + i - 1); // 左子树存在    if(inB + i &lt; inE)  root -&gt; r = buildTree_with_postorder(inB + i + 1, inE, postB + i, postE - 1); // 右子树存在    return root;}TreeNode *buildTree_with_preorder(int preB,int preE,int inB,int inE) {    int i = 0;    TreeNode* root = new TreeNode(0);    root -&gt; val = preorder[preB];    while(inorder[inB + i] != root -&gt; val) i ++;        if(i &gt; 0) root -&gt; l = buildTree_with_preorder(preB + 1,preB + i,inB,inB + i - 1);    if(i + inB &lt; inE) root -&gt; r = buildTree_with_preorder(preB + i + 1, preE, inB + i + 1, inE);        return root;}void level_print(TreeNode *t) {    queue&lt;TreeNode*&gt; q;    q.push(t);    while(!q.empty()) {        t = q.front();        q.pop();        cout &lt;&lt; t-&gt;val &lt;&lt; " ";        if(t -&gt; r) q.push(t -&gt; r);        if(t -&gt; l) q.push(t -&gt; l);    }}int main(){    cin &gt;&gt; n;    // for(int i = 0;i &lt; n;i ++) cin &gt;&gt; postorder[i];    for(int i = 0;i &lt; n;i ++) cin &gt;&gt; inorder[i];    for(int i = 0;i &lt; n;i ++) cin &gt;&gt; preorder[i];        // TreeNode *t = buildTree_with_postorder(0,n - 1,0,n - 1);    TreeNode *t = buildTree_with_preorder(0,n - 1,0,n - 1);    level_print(t);    return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据结构 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>高精度</title>
       <link href="/2022/04/27/gao-jing/"/>
       <url>/2022/04/27/gao-jing/</url>
