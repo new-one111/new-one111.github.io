@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>前缀和</title>
+      <link href="/2022/04/30/qian-zhui-he/"/>
+      <url>/2022/04/30/qian-zhui-he/</url>
+      
+        <content type="html"><![CDATA[<p>前缀和</p><span id="more"></span><h1 id="前缀和"><a href="#前缀和" class="headerlink" title="前缀和"></a>前缀和</h1><h3 id="什么是前缀和"><a href="#什么是前缀和" class="headerlink" title="什么是前缀和"></a>什么是前缀和</h3><p>给定一个数组，求这个数组a 的和（sum）是多少， 这太简单了，直接暴力枚举每一位，并用累加就可以了</p><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">for(auto t : a) sum += t;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>现在问题升级了，给你m次查询，每次询问一个n，问sum(1 ~ n)是多少？ <del>这不简单，直接暴力</del><br>n次暴力枚举，时间复杂度挠一下就上来了。 那该怎么考虑呢？</p><p>这就需要求前缀和，顾名思义，就是n 前 1~n的和，假定我们有这样一个数组b, b的下标和a一一对应，b数组存的是a的前n项和，就是 b[i] = a[1] + a[2] + a[3] + a[i - 1] + a[i];举个栗子：</p><pre class="line-numbers language-txt" data-language="txt"><code class="language-txt">a : 1 2 3 4 5b : 1 3 6 10 15<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>这样 当我们要求前n项的和时，只需要取出 b[n], 就是我们的结果，时间复杂度是O(1)<br>是不是很香，当然我们需要预处理得出b，事时间复杂度是O(n)</p><h3 id="做个板子题"><a href="#做个板子题" class="headerlink" title="做个板子题"></a><a href="https://www.acwing.com/problem/content/797/">做个板子题</a></h3><p>输入一个长度为 n 的整数序列。</p><p>接下来再输入 m 个询问，每个询问输入一对 l,r。</p><p>对于每个询问，输出原序列中从第 l 个数到第 r 个数的和。</p><p><strong>输入格式</strong><br>第一行包含两个整数 n 和 m。</p><p>第二行包含 n 个整数，表示整数数列。</p><p>接下来 m 行，每行包含两个整数 l 和 r，表示一个询问的区间范围。</p><p><strong>输出格式</strong><br>共 m 行，每行输出一个询问的结果。</p><p><strong>数据范围</strong><br>1≤l≤r≤n,<br>1≤n,m≤100000,<br>−1000≤数列中元素的值≤1000<br><strong>输入样例</strong>：</p><pre class="line-numbers language-none"><code class="language-none">5 32 1 3 6 41 21 32 4输出样例：3610<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;using namespace std;const int N = 1e5 + 10;int a[N], s[N]; // s[] 是前缀和数组int main(){    int n,m;    scanf("%d%d",&amp;n, &amp;m);    for(int i = 1;i &lt;= n;i ++) {        cin &gt;&gt; a[i];        s[i] = s[i - 1] + a[i];    }    int l,r;    while(m --) {        scanf("%d%d",&amp;l, &amp;r);        printf("%d\n",s[r] - s[l - 1]);    }    return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="二维前缀和"><a href="#二维前缀和" class="headerlink" title="二维前缀和"></a><a href="https://www.acwing.com/problem/content/798/">二维前缀和</a></h3><h4 id="图解"><a href="#图解" class="headerlink" title="图解"></a>图解</h4><p>画个图理解一下<br><img src="/images/%E5%89%8D%E7%BC%80%E5%92%8C/%E4%BA%8C%E7%BB%B4%E5%89%8D%E7%BC%80%E5%92%8C1.jpg" alt="二维前缀和的预处理"><br><img src="/images/%E5%89%8D%E7%BC%80%E5%92%8C/%E4%BA%8C%E7%BB%B4%E5%89%8D%E7%BC%80%E5%92%8C2.jpg" alt="二维前缀和的求法"><br>输入一个 n 行 m 列的整数矩阵，再输入 q 个询问，每个询问包含四个整数 x1,y1,x2,y2表示一个子矩阵的左上角坐标和右下角坐标。对于每个询问输出子矩阵中所有数的和。</p><h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>第一行包含三个整数 n，m，q。</p><p>接下来 n 行，每行包含 mm 个整数，表示整数矩阵。</p><p>接下来 q 行，每行包含四个整数 x1,y1,x2,y2，表示一组询问。</p><h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>共 qq 行，每行输出一个询问的结果。</p><h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><p>1≤n,m≤1000<br>1≤q≤200000<br>1≤x1≤x2≤n<br>1≤y1≤y2≤m<br>−1000≤矩阵内元素的值≤1000</p><h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><pre class="line-numbers language-none"><code class="language-none">3 4 31 7 2 43 6 2 82 1 2 31 1 2 22 1 3 41 3 3 4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><pre class="line-numbers language-none"><code class="language-none">172721<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h4 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;using namespace std;const int N = 1010;int a[N][N], s[N][N];int x1,y1,x2,y2;int main(){    int n,m,q;    scanf("%d%d%d",&amp;n,&amp;m,&amp;q);    for(int i = 1;i &lt;= n;i ++) {        for(int j = 1;j &lt;= m;j ++) {            scanf("%d",&amp;a[i][j]);            s[i][j] = s[i - 1][j] + s[i][j - 1] - s[i - 1][j - 1] + a[i][j];        }    }    while(q --) {        scanf("%d%d%d%d",&amp;x1,&amp;y1,&amp;x2,&amp;y2);                printf("%d\n",s[x2][y2] - s[x1 - 1][y2] - s[x2][y1 - 1] + s[x1 - 1][x2 - 1]);    }    return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>大晚上的给我写饿了</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 模板 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前缀和 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>数组建树</title>
       <link href="/2022/04/28/shu-zu-jian-shu/"/>
       <url>/2022/04/28/shu-zu-jian-shu/</url>
