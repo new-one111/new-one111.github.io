@@ -14,6 +14,8 @@
 }
 
 /*大屏幕下(桌面类)的样式*/
+
+/*开始*/
 @media only screen and (min-width: 993px) {
     .container {
         width: 90%;
@@ -122,7 +124,7 @@ pre {
 
 code {
     padding: 1px 5px;
-    top: 13px !important;
+    top: 0px !important;
     font-family: Inconsolata, Monaco, Consolas, 'Courier New', Courier, monospace;
     font-size: 0.91rem;
     color: #e96900;
@@ -592,7 +594,7 @@ header .go-back i {
     font-size: 2.5rem;
     font-weight: 400;
 }
-/*
+
 @-webkit-keyframes rainbow {
 
     0%,
@@ -684,7 +686,7 @@ header .go-back i {
         background: -webkit-linear-gradient(135deg, rgba(2233, 30, 99, 0.75) 0%, rgba(233, 30, 99, 0.65) 100%);
     }
 }
-*/
+
 
 .index-card {
     margin-top: -10px;
@@ -867,7 +869,7 @@ header .go-back i {
 #articles {
     margin-top: 10px;
     margin-bottom: 10px;
-    opacity: 0.85;
+    opacity: 1;
 }
 
 article a {
@@ -1006,7 +1008,7 @@ article .article-tags .chip {
 /*文章详情样式*/
 #artDetail {
     margin-top: -60px;
-    opacity: 0.7;
+    opacity: 1;
 }
 
 /* 修改小屏幕下文章详情table样式. */
@@ -2146,4 +2148,40 @@ p.search-result-summary{
     height: 50px;
     padding: 0;
     margin: 0;
+}
+
+.line-numbers-rows {
+    border-right-width: 0px !important;
+}
+
+.line-numbers {
+    padding: 1.5rem 1.5rem 1.5rem 3.5rem !important;
+    margin: 1rem 0 !important;
+    background: #272822;
+    overflow: fixed;
+    border-radius: 0.35rem;
+    tab-size: 4;
+}
+
+
+
+/*直达评论按钮样式*/
+.comment-scroll {
+    position: fixed;
+    right: 15px;
+    bottom: 135px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 998;
+}
+
+.comment-scroll .btn-floating {
+    background: linear-gradient(to bottom right, #FF9999 0%, #ff6666 100%);
+    width: 48px;
+    height: 48px;
+}
+
+.comment-scroll .btn-floating i {
+    line-height: 48px;
+    font-size: 1.8rem;
 }

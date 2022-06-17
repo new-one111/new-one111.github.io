@@ -18,6 +18,15 @@
 
 
     
+    <style>
+        body{
+            background-image: url(https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/res/site/medias/background.jpg);
+            background-repeat:no-repeat;
+            background-size: 100% 100%;
+            background-attachment:fixed;
+        }
+    </style>
+
 
     <title>分类: 题解 | RufuCodeZone</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
@@ -283,7 +292,9 @@
 
 
 <script>
-    $('.bg-cover').css('background-image', 'url(/medias/banner/0.jpg)');
+    // 每天切换 banner 图.  Switch banner image every day.
+    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
+    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
 </script>
 
 
@@ -322,10 +333,19 @@
                 </a>
                 
                 
+                <a href="/categories/%E6%A8%A1%E6%9D%BF/" title="模板: 7">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #D5F5E3;">模板
+                        <span class="tag-length">7</span>
+                    </span>
+                </a>
+                
+                
                 <a href="/categories/%E9%A2%98%E8%A7%A3/" title="题解: 8">
                     <span class="chip center-align waves-effect waves-light
                              chip-active "
-                            style="background-color: #D5F5E3;">题解
+                            style="background-color: #E8F8F5;">题解
                         <span class="tag-length">8</span>
                     </span>
                 </a>
@@ -334,17 +354,8 @@
                 <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构: 2">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #E8F8F5;">数据结构
+                            style="background-color: #FEF9E7;">数据结构
                         <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/%E6%A8%A1%E6%9D%BF/" title="模板: 7">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #FEF9E7;">模板
-                        <span class="tag-length">7</span>
                     </span>
                 </a>
                 
@@ -362,7 +373,7 @@
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/04/27/she-xing-fang-zhen/">
+                    <a href="/2022/06/17/she-xing-fang-zhen/">
                         <div class="card-image tag-image">
                             
                             
@@ -384,7 +395,7 @@
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-17
                             </span>
                             <span class="publish-author">
                                 
@@ -413,7 +424,7 @@
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/04/27/yue-se-fu-huan/">
+                    <a href="/2022/06/17/yue-se-fu-huan/">
                         <div class="card-image tag-image">
                             
                             
@@ -435,7 +446,7 @@
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-17
                             </span>
                             <span class="publish-author">
                                 
@@ -464,7 +475,7 @@
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/04/27/jian-dan-de-tong-pai-xu/">
+                    <a href="/2022/06/17/jian-dan-de-tong-pai-xu/">
                         <div class="card-image tag-image">
                             
                             
@@ -485,7 +496,7 @@
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-17
                             </span>
                             <span class="publish-author">
                                 
@@ -514,7 +525,7 @@
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/04/27/zhen-de-shi-qian-dao-ti-ma/">
+                    <a href="/2022/06/17/zhen-de-shi-qian-dao-ti-ma/">
                         <div class="card-image tag-image">
                             
                             
@@ -538,7 +549,7 @@ multiset&lt;int,greater &gt;
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-17
                             </span>
                             <span class="publish-author">
                                 
@@ -571,7 +582,7 @@ multiset&lt;int,greater &gt;
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/04/27/mu-niu-de-gu-shi/">
+                    <a href="/2022/06/17/mu-niu-de-gu-shi/">
                         <div class="card-image tag-image">
                             
                             
@@ -592,7 +603,7 @@ multiset&lt;int,greater &gt;
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-17
                             </span>
                             <span class="publish-author">
                                 
@@ -621,7 +632,7 @@ multiset&lt;int,greater &gt;
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/04/27/zui-chang-lian-xu-yin-zi/">
+                    <a href="/2022/06/17/zui-chang-lian-xu-yin-zi/">
                         <div class="card-image tag-image">
                             
                             
@@ -641,7 +652,7 @@ multiset&lt;int,greater &gt;
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-17
                             </span>
                             <span class="publish-author">
                                 
@@ -670,7 +681,7 @@ multiset&lt;int,greater &gt;
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/04/27/shi-jian-fu-za-du/">
+                    <a href="/2022/06/17/shi-jian-fu-za-du/">
                         <div class="card-image tag-image">
                             
                             
@@ -691,7 +702,7 @@ multiset&lt;int,greater &gt;
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-17
                             </span>
                             <span class="publish-author">
                                 
@@ -728,7 +739,7 @@ multiset&lt;int,greater &gt;
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/04/27/hua-xue-kuang-bao/">
+                    <a href="/2022/06/17/hua-xue-kuang-bao/">
                         <div class="card-image tag-image">
                             
                             
@@ -752,7 +763,7 @@ P4029 [Code+#2]化学狂暴传送  P4029 [Code+#2]化学狂暴
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-17
                             </span>
                             <span class="publish-author">
                                 
@@ -1026,6 +1037,7 @@ $(function () {
     </a>
 </div>
 
+
     
     <script src="/js/FunnyTitle.js"></script>
     <script src="/libs/materialize/materialize.min.js"></script>
@@ -1041,6 +1053,14 @@ $(function () {
     
 
     <!-- 雪花特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/snow.js"><\/script>');
+            }
+        </script>
     
 
     <!-- 鼠标星星特效 -->
@@ -1086,14 +1106,6 @@ $(function () {
     
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
-
-    <style type=text/css>
-       body {background-image:url(https://www.dmoe.cc/random.php) ;//图片类型更换请修改参数  
-       background-repeat:repeat;
-       background-attachment:fixed;
-       background-position:50% 50%;
-       }
-    </style>
 
 </body>
 
