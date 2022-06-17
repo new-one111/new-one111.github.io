@@ -417,7 +417,7 @@ AcWing原题链接
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-29
+                    2022-06-16
                 </div>
                 
 
@@ -465,60 +465,60 @@ AcWing原题链接
 <h1 id="快速幂-amp-amp-取模"><a href="#快速幂-amp-amp-取模" class="headerlink" title="快速幂&amp;&amp;取模"></a>快速幂&amp;&amp;取模</h1><p>问题描述：求 a^n mod p 的结果</p>
 <p>0≤a,n≤10(9)<br>1≤p≤10(9)</p>
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/91/">AcWing原题链接</a></p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><h4 id="快速幂模板"><a href="#快速幂模板" class="headerlink" title="快速幂模板"></a>快速幂模板</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
-#define ll long long
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><h4 id="快速幂模板"><a href="#快速幂模板" class="headerlink" title="快速幂模板"></a>快速幂模板</h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">ll</span> <span class="token expression"><span class="token keyword">long</span> <span class="token keyword">long</span></span></span>
 
-using namespace std;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
-ll QuickMi(ll a,ll n)
-{
-    ll ans = 1;
-    while(n)
-    {
-        if(n&amp;1)
-        {
-            ans = a;
-        }
-        a *= a;
-        n &gt;&gt;= 1;
-    }
-    return ans;
-}
-int main()
-{
-    ll a,b;
-    cin &gt;&gt; a &gt;&gt; b;
-    cout &lt;&lt; QuickMi(a,b);   
-    return 0;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+ll <span class="token function">QuickMi</span><span class="token punctuation">(</span>ll a<span class="token punctuation">,</span>ll n<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    ll ans <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>n<span class="token operator">&amp;</span><span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            ans <span class="token operator">=</span> a<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        a <span class="token operator">*=</span> a<span class="token punctuation">;</span>
+        n <span class="token operator">&gt;&gt;=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    ll a<span class="token punctuation">,</span>b<span class="token punctuation">;</span>
+    cin <span class="token operator">&gt;&gt;</span> a <span class="token operator">&gt;&gt;</span> b<span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token function">QuickMi</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>   
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
-<h4 id="快速幂求余"><a href="#快速幂求余" class="headerlink" title="快速幂求余"></a>快速幂求余</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
-#define long long ll
-using namespace std;
+<h4 id="快速幂求余"><a href="#快速幂求余" class="headerlink" title="快速幂求余"></a>快速幂求余</h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">long</span> <span class="token expression"><span class="token keyword">long</span> ll</span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
-ll QuickMi(ll a,ll n,ll p)
-{
-    ll res = 1 % p;
-    while(n)
-    {
-        if(n &amp; 1)
-        {
-            res = (res * a) % p;
-        }
-        a = (a * a) % p;
-        n &gt;&gt;= 1;
-    }
-    return res;
-}
-ll a,b,p;
-int main()
-{
-    cin &gt;&gt; a &gt;&gt; b &gt;&gt; p;
-    cout &lt;&lt; QuickMi(a,b,p) &lt;&lt; endl;
-    return 0;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+ll <span class="token function">QuickMi</span><span class="token punctuation">(</span>ll a<span class="token punctuation">,</span>ll n<span class="token punctuation">,</span>ll p<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    ll res <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">%</span> p<span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>n <span class="token operator">&amp;</span> <span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            res <span class="token operator">=</span> <span class="token punctuation">(</span>res <span class="token operator">*</span> a<span class="token punctuation">)</span> <span class="token operator">%</span> p<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        a <span class="token operator">=</span> <span class="token punctuation">(</span>a <span class="token operator">*</span> a<span class="token punctuation">)</span> <span class="token operator">%</span> p<span class="token punctuation">;</span>
+        n <span class="token operator">&gt;&gt;=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+ll a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>p<span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    cin <span class="token operator">&gt;&gt;</span> a <span class="token operator">&gt;&gt;</span> b <span class="token operator">&gt;&gt;</span> p<span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token function">QuickMi</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>p<span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -1295,7 +1295,7 @@ int main()
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">13.1k</span>
+                        class="white-color">19.8k</span>
             
             
             

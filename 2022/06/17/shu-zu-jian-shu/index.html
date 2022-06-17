@@ -419,7 +419,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-29
+                    2022-06-16
                 </div>
                 
 
@@ -469,71 +469,71 @@
 <li><a target="_blank" rel="noopener" href="https://pintia.cn/problem-sets/994805046380707840/problems/994805069361299456">给定一个中序序列 + 后续序列，建立一棵二叉树层序输出</a></li>
 <li><a target="_blank" rel="noopener" href="https://pintia.cn/problem-sets/994805046380707840/problems/1336215880692482058">给定一个序列建立一个完全二叉树</a></li>
 </ul>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include &lt;iostream&gt;
-#include &lt;queue&gt;
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;queue&gt;</span></span>
 
-using namespace std;
-const int MaxN = 1e5 + 10;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token keyword">int</span> MaxN <span class="token operator">=</span> <span class="token number">1e5</span> <span class="token operator">+</span> <span class="token number">10</span><span class="token punctuation">;</span>
 
-int n,preorder[MaxN],postorder[MaxN],inorder[MaxN];
+<span class="token keyword">int</span> n<span class="token punctuation">,</span>preorder<span class="token punctuation">[</span>MaxN<span class="token punctuation">]</span><span class="token punctuation">,</span>postorder<span class="token punctuation">[</span>MaxN<span class="token punctuation">]</span><span class="token punctuation">,</span>inorder<span class="token punctuation">[</span>MaxN<span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-struct TreeNode {
-    int val;
-    TreeNode *r,*l;
-    TreeNode(int data) : val(data),l(NULL),r(NULL) {}
-};
+<span class="token keyword">struct</span> <span class="token class-name">TreeNode</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> val<span class="token punctuation">;</span>
+    TreeNode <span class="token operator">*</span>r<span class="token punctuation">,</span><span class="token operator">*</span>l<span class="token punctuation">;</span>
+    <span class="token function">TreeNode</span><span class="token punctuation">(</span><span class="token keyword">int</span> data<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">val</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">l</span><span class="token punctuation">(</span><span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">r</span><span class="token punctuation">(</span><span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-TreeNode *buildTree_with_postorder(int inB,int inE,int postB,int postE) {
-    int i = 0;
-    TreeNode* root = new TreeNode(0);
-    root -&gt; val = postorder[postE];
-    while(inorder[inB + i] != root -&gt; val) i ++;
-    if(i &gt; 0)  root -&gt; l = buildTree_with_postorder(inB, inB + i - 1, postB, postB + i - 1); // 左子树存在
+TreeNode <span class="token operator">*</span><span class="token function">buildTree_with_postorder</span><span class="token punctuation">(</span><span class="token keyword">int</span> inB<span class="token punctuation">,</span><span class="token keyword">int</span> inE<span class="token punctuation">,</span><span class="token keyword">int</span> postB<span class="token punctuation">,</span><span class="token keyword">int</span> postE<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    TreeNode<span class="token operator">*</span> root <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">TreeNode</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    root <span class="token operator">-&gt;</span> val <span class="token operator">=</span> postorder<span class="token punctuation">[</span>postE<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>inorder<span class="token punctuation">[</span>inB <span class="token operator">+</span> i<span class="token punctuation">]</span> <span class="token operator">!=</span> root <span class="token operator">-&gt;</span> val<span class="token punctuation">)</span> i <span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>i <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span>  root <span class="token operator">-&gt;</span> l <span class="token operator">=</span> <span class="token function">buildTree_with_postorder</span><span class="token punctuation">(</span>inB<span class="token punctuation">,</span> inB <span class="token operator">+</span> i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> postB<span class="token punctuation">,</span> postB <span class="token operator">+</span> i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 左子树存在</span>
 
-    if(inB + i &lt; inE)  root -&gt; r = buildTree_with_postorder(inB + i + 1, inE, postB + i, postE - 1); // 右子树存在
+    <span class="token keyword">if</span><span class="token punctuation">(</span>inB <span class="token operator">+</span> i <span class="token operator">&lt;</span> inE<span class="token punctuation">)</span>  root <span class="token operator">-&gt;</span> r <span class="token operator">=</span> <span class="token function">buildTree_with_postorder</span><span class="token punctuation">(</span>inB <span class="token operator">+</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> inE<span class="token punctuation">,</span> postB <span class="token operator">+</span> i<span class="token punctuation">,</span> postE <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 右子树存在</span>
 
-    return root;
-}
+    <span class="token keyword">return</span> root<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-TreeNode *buildTree_with_preorder(int preB,int preE,int inB,int inE) {
-    int i = 0;
-    TreeNode* root = new TreeNode(0);
-    root -&gt; val = preorder[preB];
-    while(inorder[inB + i] != root -&gt; val) i ++;
+TreeNode <span class="token operator">*</span><span class="token function">buildTree_with_preorder</span><span class="token punctuation">(</span><span class="token keyword">int</span> preB<span class="token punctuation">,</span><span class="token keyword">int</span> preE<span class="token punctuation">,</span><span class="token keyword">int</span> inB<span class="token punctuation">,</span><span class="token keyword">int</span> inE<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    TreeNode<span class="token operator">*</span> root <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">TreeNode</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    root <span class="token operator">-&gt;</span> val <span class="token operator">=</span> preorder<span class="token punctuation">[</span>preB<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>inorder<span class="token punctuation">[</span>inB <span class="token operator">+</span> i<span class="token punctuation">]</span> <span class="token operator">!=</span> root <span class="token operator">-&gt;</span> val<span class="token punctuation">)</span> i <span class="token operator">++</span><span class="token punctuation">;</span>
     
-    if(i &gt; 0) root -&gt; l = buildTree_with_preorder(preB + 1,preB + i,inB,inB + i - 1);
+    <span class="token keyword">if</span><span class="token punctuation">(</span>i <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> root <span class="token operator">-&gt;</span> l <span class="token operator">=</span> <span class="token function">buildTree_with_preorder</span><span class="token punctuation">(</span>preB <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span>preB <span class="token operator">+</span> i<span class="token punctuation">,</span>inB<span class="token punctuation">,</span>inB <span class="token operator">+</span> i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    if(i + inB &lt; inE) root -&gt; r = buildTree_with_preorder(preB + i + 1, preE, inB + i + 1, inE);
+    <span class="token keyword">if</span><span class="token punctuation">(</span>i <span class="token operator">+</span> inB <span class="token operator">&lt;</span> inE<span class="token punctuation">)</span> root <span class="token operator">-&gt;</span> r <span class="token operator">=</span> <span class="token function">buildTree_with_preorder</span><span class="token punctuation">(</span>preB <span class="token operator">+</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> preE<span class="token punctuation">,</span> inB <span class="token operator">+</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> inE<span class="token punctuation">)</span><span class="token punctuation">;</span>
     
-    return root;
-}
+    <span class="token keyword">return</span> root<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
 
-void level_print(TreeNode *t) {
-    queue&lt;TreeNode*&gt; q;
-    q.push(t);
-    while(!q.empty()) {
-        t = q.front();
-        q.pop();
-        cout &lt;&lt; t-&gt;val &lt;&lt; " ";
-        if(t -&gt; r) q.push(t -&gt; r);
-        if(t -&gt; l) q.push(t -&gt; l);
-    }
-}
+<span class="token keyword">void</span> <span class="token function">level_print</span><span class="token punctuation">(</span>TreeNode <span class="token operator">*</span>t<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    queue<span class="token operator">&lt;</span>TreeNode<span class="token operator">*</span><span class="token operator">&gt;</span> q<span class="token punctuation">;</span>
+    q<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span>q<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        t <span class="token operator">=</span> q<span class="token punctuation">.</span><span class="token function">front</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        q<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        cout <span class="token operator">&lt;&lt;</span> t<span class="token operator">-&gt;</span>val <span class="token operator">&lt;&lt;</span> <span class="token string">" "</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>t <span class="token operator">-&gt;</span> r<span class="token punctuation">)</span> q<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>t <span class="token operator">-&gt;</span> r<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>t <span class="token operator">-&gt;</span> l<span class="token punctuation">)</span> q<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>t <span class="token operator">-&gt;</span> l<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-int main()
-{
-    cin &gt;&gt; n;
-    // for(int i = 0;i &lt; n;i ++) cin &gt;&gt; postorder[i];
-    for(int i = 0;i &lt; n;i ++) cin &gt;&gt; inorder[i];
-    for(int i = 0;i &lt; n;i ++) cin &gt;&gt; preorder[i];
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    cin <span class="token operator">&gt;&gt;</span> n<span class="token punctuation">;</span>
+    <span class="token comment">// for(int i = 0;i &lt; n;i ++) cin &gt;&gt; postorder[i];</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span>i <span class="token operator">++</span><span class="token punctuation">)</span> cin <span class="token operator">&gt;&gt;</span> inorder<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span>i <span class="token operator">++</span><span class="token punctuation">)</span> cin <span class="token operator">&gt;&gt;</span> preorder<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
     
-    // TreeNode *t = buildTree_with_postorder(0,n - 1,0,n - 1);
-    TreeNode *t = buildTree_with_preorder(0,n - 1,0,n - 1);
+    <span class="token comment">// TreeNode *t = buildTree_with_postorder(0,n - 1,0,n - 1);</span>
+    TreeNode <span class="token operator">*</span>t <span class="token operator">=</span> <span class="token function">buildTree_with_preorder</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    level_print(t);
-    return 0;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token function">level_print</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -1316,7 +1316,7 @@ int main()
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">13.1k</span>
+                        class="white-color">19.8k</span>
             
             
             

@@ -422,7 +422,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-29
+                    2022-06-16
                 </div>
                 
 
@@ -496,43 +496,43 @@ E<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><s
 <p>语法错误（其中语法错误只有: ① F 和 E 不匹配 ② 新建的变量与已经存在但未被销毁的变量重复两种情况），则输出 <code>ERR</code>。</p>
 <p>注意：即使在程序不会执行的循环体中出现了语法错误也会编译错误，要输出 <code>ERR</code>。</p>
 <h2 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h2><p>输入：</p>
-<pre class="line-numbers language-none"><code class="language-none">8
-2 O(1)
-F i 1 1
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token number">8</span>
+<span class="token number">2</span> <span class="token function">O</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+F i <span class="token number">1</span> <span class="token number">1</span>
 E
-2 O(n^1)
-F x 1 n
+<span class="token number">2</span> <span class="token function">O</span><span class="token punctuation">(</span>n<span class="token operator">^</span><span class="token number">1</span><span class="token punctuation">)</span>
+F x <span class="token number">1</span> n
 E
-1 O(1)
-F x 1 n
-4 O(n^2)
-F x 5 n
-F y 10 n
-E
-E
-4 O(n^2)
-F x 9 n
-E
-F y 2 n
-E
-4 O(n^1)
-F x 9 n
-F y n 4
+<span class="token number">1</span> <span class="token function">O</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+F x <span class="token number">1</span> n
+<span class="token number">4</span> <span class="token function">O</span><span class="token punctuation">(</span>n<span class="token operator">^</span><span class="token number">2</span><span class="token punctuation">)</span>
+F x <span class="token number">5</span> n
+F y <span class="token number">10</span> n
 E
 E
-4 O(1)
-F y n 4
-F x 9 n
+<span class="token number">4</span> <span class="token function">O</span><span class="token punctuation">(</span>n<span class="token operator">^</span><span class="token number">2</span><span class="token punctuation">)</span>
+F x <span class="token number">9</span> n
+E
+F y <span class="token number">2</span> n
+E
+<span class="token number">4</span> <span class="token function">O</span><span class="token punctuation">(</span>n<span class="token operator">^</span><span class="token number">1</span><span class="token punctuation">)</span>
+F x <span class="token number">9</span> n
+F y n <span class="token number">4</span>
 E
 E
-4 O(n^2)
-F x 1 n
-F x 1 10
+<span class="token number">4</span> <span class="token function">O</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+F y n <span class="token number">4</span>
+F x <span class="token number">9</span> n
+E
+E
+<span class="token number">4</span> <span class="token function">O</span><span class="token punctuation">(</span>n<span class="token operator">^</span><span class="token number">2</span><span class="token punctuation">)</span>
+F x <span class="token number">1</span> n
+F x <span class="token number">1</span> <span class="token number">10</span>
 E
 E<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>输出：</p>
-<pre class="line-numbers language-none"><code class="language-none">Yes
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">Yes
 Yes
 ERR
 Yes
@@ -547,40 +547,40 @@ ERR<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span>
 <p><strong>字符串</strong></p>
 <p><code>输入的时间复杂度判断</code> : 题目中只会出现两种时间复杂度<code>O(1)</code>、 <code>O(n^w)</code> 而 O(1) 的 字符串长度为 4 , O(n ^ w)的字符长度一定大于 4 ，以此 为判断。</p>
 <p><code>字符串读入</code>：一整行的读入，使用<code>getline(is_,string)</code>读入带空格的字符串, c++ 11 中 gets() 函数不被定义，<code>online judge</code>可能报错。</p>
-<pre class="line-numbers language-none"><code class="language-none">string str;
-getline(cin,str);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">string str<span class="token punctuation">;</span>
+<span class="token function">getline</span><span class="token punctuation">(</span>cin<span class="token punctuation">,</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p><strong>F E 匹配</strong></p>
 <p>判断 F E 是否匹配，类似于<strong>括号匹配问题</strong> 定义一个<code>FEn</code> 当读入 F 时 FEn ++, 读入 E 时FEn –, 当 <code>FEn &lt; 0</code> ||<code>（读入最后一行代码时）FEn != 0</code>，表明 F E是 不匹配的。</p>
 <p>注意：输入的 L 如果为奇数 如 1 ，3 ，5 那么 ，E F 一定不匹配</p>
 <p><strong>时间复杂度不匹配</strong></p>
 <p>根据O(1) 和 O(n^w) 的字符串长度 得到 目标时间复杂度。</p>
-<pre class="line-numbers language-none"><code class="language-none">// 提取 w 
-	if(the_o){
-		w = 0;
-		for(int i = 0;i &lt; strlen(time);i ++)
-			if(time[i] &gt;= '0' &amp;&amp; time[i] &lt;= '9') w = w * 10 + time[i] - '0';
-	}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// 提取 w </span>
+	<span class="token keyword">if</span><span class="token punctuation">(</span>the_o<span class="token punctuation">)</span><span class="token punctuation">{</span>
+		w <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+		<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> <span class="token function">strlen</span><span class="token punctuation">(</span>time<span class="token punctuation">)</span><span class="token punctuation">;</span>i <span class="token operator">++</span><span class="token punctuation">)</span>
+			<span class="token keyword">if</span><span class="token punctuation">(</span>time<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&gt;=</span> <span class="token char">'0'</span> <span class="token operator">&amp;&amp;</span> time<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;=</span> <span class="token char">'9'</span><span class="token punctuation">)</span> w <span class="token operator">=</span> w <span class="token operator">*</span> <span class="token number">10</span> <span class="token operator">+</span> time<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-</span> <span class="token char">'0'</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>对于 匹配的逻辑，当我们输入 E 时，就是结束一层循环，最近的 F 与这个 E 匹配，简而言之就是 <code>后输入的 先被匹配</code>，用栈存：检测到读入的是 F 语句，就将 <code>F i x y</code> 中的 i x y 入栈，遇到 E 就将 i x y 出栈。</p>
-<pre class="line-numbers language-none"><code class="language-none">// 
-struct node 
-{
-    string i,x,y;
-};
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// </span>
+<span class="token keyword">struct</span> <span class="token class-name">node</span> 
+<span class="token punctuation">{</span>
+    string i<span class="token punctuation">,</span>x<span class="token punctuation">,</span>y<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-while(i &lt; L){
-    getline(a);
-    node stack[101]; // 数 组 栈
-    int base = 0, top = base;
-    if(a[0] == 'F'){
-        // 入 栈
-    }
-    if(a[0] == 'E'){
-        // 出 栈
-    }
-    i ++;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">while</span><span class="token punctuation">(</span>i <span class="token operator">&lt;</span> L<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">getline</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    node stack<span class="token punctuation">[</span><span class="token number">101</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// 数 组 栈</span>
+    <span class="token keyword">int</span> base <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> top <span class="token operator">=</span> base<span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token char">'F'</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment">// 入 栈</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token char">'E'</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment">// 出 栈</span>
+    <span class="token punctuation">}</span>
+    i <span class="token operator">++</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>出栈之前 遍历 整个栈 ，判断是否 <code>变量重复</code>。</p>
 <p>对于时间复杂度的判断，定义一个 string <code>stime</code>字符串，出栈之前 将 当前循环的时间复杂度存入stime，</p>
@@ -589,15 +589,15 @@ while(i &lt; L){
 <p>n^1复杂度：n</p>
 <p>计算最大时间复杂度并取最大值。</p>
 <p>例如对</p>
-<pre class="line-numbers language-none"><code class="language-none">F a 76 n
-F b 34 n
-F c 16 n
-F d 2 n
-F e 5 n
-F f 87 n
-F g 8 n
-F h 3 n
-F i n 17
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">F a <span class="token number">76</span> n
+F b <span class="token number">34</span> n
+F c <span class="token number">16</span> n
+F d <span class="token number">2</span> n
+F e <span class="token number">5</span> n
+F f <span class="token number">87</span> n
+F g <span class="token number">8</span> n
+F h <span class="token number">3</span> n
+F i n <span class="token number">17</span>
 E
 E
 E
@@ -607,164 +607,164 @@ E
 E
 E
 E
-stime : FFFFFFFFF1EnEnEnEnEnEnEnEnE
-时间复杂度为 n^8<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+stime <span class="token operator">:</span> FFFFFFFFF1EnEnEnEnEnEnEnEnE
+时间复杂度为 n<span class="token operator">^</span><span class="token number">8</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><code>1</code>状态为截断，即 <code>1</code>循环以内的都不执行，不算时间复杂度</p>
 <p>体现在stime就是1以前的不计算时间复杂度，因为，1以前的是先出栈的，在1循环的内部，被截断</p>
 <p>通过得到的实际时间复杂度，与目标时间复杂度相符为 Yes ,否为 No。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
-#include&lt;stdio.h&gt;
-#include&lt;stdlib.h&gt;
-#include&lt;string.h&gt;
-#include&lt;algorithm&gt;
-#define MAXSIZE 100
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;stdio.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;stdlib.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;string.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;algorithm&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">MAXSIZE</span> <span class="token expression"><span class="token number">100</span></span></span>
 
-using namespace std;
-struct node{
-	string i,x,y;
-};
-int t = 0;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token keyword">struct</span> <span class="token class-name">node</span><span class="token punctuation">{</span>
+	string i<span class="token punctuation">,</span>x<span class="token punctuation">,</span>y<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> t <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
-int Tonumber(string a) // 将 string 转为 int
-{
-	int len = a.length();
-	int  n = 0;
-	for(int i = 0;i &lt; len;i ++){
-		n = n * 10 + a[i];
-	}
-	return n;
-}
-int checkTime(string a) // 根据 stime 判断时间复杂度
-{
-	int len = a.length();
-	int t = 0,maxt = -1;
-	char stack[1005];
-	int base = 0,top = base;
-	bool change = false;
-	bool fg[len + 1];
-	memset(fg,true,sizeof(fg));
-	for(int i = 1;i &lt; len;i ++){
-		t = 0;
-		if(a[i] == 'E' &amp;&amp; (a[i + 1] == 'F' || a[i + 1] == '\0')){
-			for(int j = i;j &gt;= 0 ;j --){
-				if(a[j] == 'n') t ++;
-				if(a[j] == 'F') break;
-				if(a[j] == '1'){
-                    // 读 到 1 就 可 以 退 出
-					if(maxt &lt; t) maxt = t;
-					t = 0;
-					break;
-				}
-			}
+<span class="token keyword">int</span> <span class="token function">Tonumber</span><span class="token punctuation">(</span>string a<span class="token punctuation">)</span> <span class="token comment">// 将 string 转为 int</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">int</span> len <span class="token operator">=</span> a<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">int</span>  n <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span>i <span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		n <span class="token operator">=</span> n <span class="token operator">*</span> <span class="token number">10</span> <span class="token operator">+</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">return</span> n<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">int</span> <span class="token function">checkTime</span><span class="token punctuation">(</span>string a<span class="token punctuation">)</span> <span class="token comment">// 根据 stime 判断时间复杂度</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">int</span> len <span class="token operator">=</span> a<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">int</span> t <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>maxt <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+	<span class="token keyword">char</span> stack<span class="token punctuation">[</span><span class="token number">1005</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token keyword">int</span> base <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>top <span class="token operator">=</span> base<span class="token punctuation">;</span>
+	<span class="token keyword">bool</span> change <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+	<span class="token keyword">bool</span> fg<span class="token punctuation">[</span>len <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token function">memset</span><span class="token punctuation">(</span>fg<span class="token punctuation">,</span><span class="token boolean">true</span><span class="token punctuation">,</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>fg<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span>i <span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		t <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+		<span class="token keyword">if</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token char">'E'</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>a<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token char">'F'</span> <span class="token operator">||</span> a<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token char">'\0'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+			<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> i<span class="token punctuation">;</span>j <span class="token operator">&gt;=</span> <span class="token number">0</span> <span class="token punctuation">;</span>j <span class="token operator">--</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+				<span class="token keyword">if</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token char">'n'</span><span class="token punctuation">)</span> t <span class="token operator">++</span><span class="token punctuation">;</span>
+				<span class="token keyword">if</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token char">'F'</span><span class="token punctuation">)</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+				<span class="token keyword">if</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token char">'1'</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    <span class="token comment">// 读 到 1 就 可 以 退 出</span>
+					<span class="token keyword">if</span><span class="token punctuation">(</span>maxt <span class="token operator">&lt;</span> t<span class="token punctuation">)</span> maxt <span class="token operator">=</span> t<span class="token punctuation">;</span>
+					t <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+					<span class="token keyword">break</span><span class="token punctuation">;</span>
+				<span class="token punctuation">}</span>
+			<span class="token punctuation">}</span>
             
-			if(maxt &lt; t) maxt = t;
-		}
-	}
-	return maxt;
-}
-void func()
-{
-	int L,FEn = 0,n,w; // O(n^w)
-	bool the_o = true;
-	char time[10];
-	cin &gt;&gt; L &gt;&gt; time;
-	getchar();
-	if(strlen(time) == 4) the_o = false;
-	if(the_o){
-		w = 0;
-		for(int i = 0;i &lt; strlen(time);i ++){
-			if(time[i] &gt;= '0' &amp;&amp; time[i] &lt;= '9') w = w * 10 + time[i] - '0';
-		}
-	}
-	//cout &lt;&lt; the_o &lt;&lt; endl;
-	string code[105];
-	if(L&amp;1){
-		for(int i = 0;i &lt; L;i ++){
-			getline(cin,code[i]);
-		}
-		// @ L 为 奇 数
-		cout &lt;&lt; "ERR" &lt;&lt; endl;
-		return ;
-	}else{
-		bool outcome = true;
-		string stime = "";
-		node stack[101];
-		int top = 0, base = 0;
-		int max_w = -1;
-		bool Notips = true;
-		for(int i = 0;i &lt; L;i ++){
-			getline(cin,code[i]);
-			// cout &lt;&lt; code[i] &lt;&lt; endl;
+			<span class="token keyword">if</span><span class="token punctuation">(</span>maxt <span class="token operator">&lt;</span> t<span class="token punctuation">)</span> maxt <span class="token operator">=</span> t<span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">return</span> maxt<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">void</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">int</span> L<span class="token punctuation">,</span>FEn <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>n<span class="token punctuation">,</span>w<span class="token punctuation">;</span> <span class="token comment">// O(n^w)</span>
+	<span class="token keyword">bool</span> the_o <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+	<span class="token keyword">char</span> time<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+	cin <span class="token operator">&gt;&gt;</span> L <span class="token operator">&gt;&gt;</span> time<span class="token punctuation">;</span>
+	<span class="token function">getchar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">strlen</span><span class="token punctuation">(</span>time<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">4</span><span class="token punctuation">)</span> the_o <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span><span class="token punctuation">(</span>the_o<span class="token punctuation">)</span><span class="token punctuation">{</span>
+		w <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+		<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> <span class="token function">strlen</span><span class="token punctuation">(</span>time<span class="token punctuation">)</span><span class="token punctuation">;</span>i <span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+			<span class="token keyword">if</span><span class="token punctuation">(</span>time<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&gt;=</span> <span class="token char">'0'</span> <span class="token operator">&amp;&amp;</span> time<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;=</span> <span class="token char">'9'</span><span class="token punctuation">)</span> w <span class="token operator">=</span> w <span class="token operator">*</span> <span class="token number">10</span> <span class="token operator">+</span> time<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-</span> <span class="token char">'0'</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+	<span class="token comment">//cout &lt;&lt; the_o &lt;&lt; endl;</span>
+	string code<span class="token punctuation">[</span><span class="token number">105</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span><span class="token punctuation">(</span>L<span class="token operator">&amp;</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> L<span class="token punctuation">;</span>i <span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+			<span class="token function">getline</span><span class="token punctuation">(</span>cin<span class="token punctuation">,</span>code<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+		<span class="token comment">// @ L 为 奇 数</span>
+		cout <span class="token operator">&lt;&lt;</span> <span class="token string">"ERR"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+		<span class="token keyword">return</span> <span class="token punctuation">;</span>
+	<span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+		<span class="token keyword">bool</span> outcome <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+		string stime <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
+		node stack<span class="token punctuation">[</span><span class="token number">101</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+		<span class="token keyword">int</span> top <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> base <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+		<span class="token keyword">int</span> max_w <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+		<span class="token keyword">bool</span> Notips <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+		<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> L<span class="token punctuation">;</span>i <span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+			<span class="token function">getline</span><span class="token punctuation">(</span>cin<span class="token punctuation">,</span>code<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token comment">// cout &lt;&lt; code[i] &lt;&lt; endl;</span>
             
-			if(code[i][0] == 'F') {
-				FEn ++;
-				stime = stime + "F";
-				// 变 量 入 栈
-				bool spaceshow = false;
-				stack[top].i = code[i][2];
-				for(int j = 4;j &lt; code[i].length();j ++){
-					if(code[i][j] == ' ') {spaceshow = true;continue;}
-					if(!spaceshow) stack[top].x += code[i][j];
-					else stack[top].y += code[i][j];
-				}
-				//cout &lt;&lt;"栈："&lt;&lt; stack[top].i &lt;&lt; " " &lt;&lt; stack[top].x &lt;&lt; " " &lt;&lt; stack[top].y &lt;&lt; endl;   // 调 试 
-				top ++;
-			}
-			bool once = false;
-			if(code[i][0] == 'E' &amp;&amp; FEn &gt; 0) {
-				FEn --;
-				once = true;
-				// 1. 判 断 变 量 重 名
-				int ftop = base;
-				//cout &lt;&lt; "zhan:" &lt;&lt;base &lt;&lt; " " &lt;&lt; top &lt;&lt;endl;   // 调 试 
-				for(;ftop &lt; top - 1;ftop ++){
-					if(stack[ftop].i == stack[top - 1].i) {outcome = false;break;}
-				}
-				// 2. 标 记 时 间 复 杂 度 @ stime
-				//stime = "F" + stime;
-				if(stack[top - 1].x == "n" &amp;&amp; stack[top - 1].y != "n") stime += "1";
-				else if(stack[top - 1].y == "n") {
-					if(stack[top - 1].x != "n") stime += "n";
-					else stime += "c";
-				}
-				else if(Tonumber(stack[top - 1].x) &gt; Tonumber(stack[top -1].y)) stime += "1";
-				else if(Tonumber(stack[top - 1].x) &lt;= Tonumber(stack[top -1].y)) stime += "c";
-				stime += "E";
-				stack[top - 1] = {"","",""};
-				top--; // 遇 到 E 就 将 变 量 出 栈
-			}
-			if(code[i][0] == 'E' &amp;&amp; !once) FEn --;
+			<span class="token keyword">if</span><span class="token punctuation">(</span>code<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token char">'F'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+				FEn <span class="token operator">++</span><span class="token punctuation">;</span>
+				stime <span class="token operator">=</span> stime <span class="token operator">+</span> <span class="token string">"F"</span><span class="token punctuation">;</span>
+				<span class="token comment">// 变 量 入 栈</span>
+				<span class="token keyword">bool</span> spaceshow <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+				stack<span class="token punctuation">[</span>top<span class="token punctuation">]</span><span class="token punctuation">.</span>i <span class="token operator">=</span> code<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+				<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">;</span>j <span class="token operator">&lt;</span> code<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>j <span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+					<span class="token keyword">if</span><span class="token punctuation">(</span>code<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token char">' '</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>spaceshow <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span><span class="token keyword">continue</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
+					<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>spaceshow<span class="token punctuation">)</span> stack<span class="token punctuation">[</span>top<span class="token punctuation">]</span><span class="token punctuation">.</span>x <span class="token operator">+=</span> code<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+					<span class="token keyword">else</span> stack<span class="token punctuation">[</span>top<span class="token punctuation">]</span><span class="token punctuation">.</span>y <span class="token operator">+=</span> code<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+				<span class="token punctuation">}</span>
+				<span class="token comment">//cout &lt;&lt;"栈："&lt;&lt; stack[top].i &lt;&lt; " " &lt;&lt; stack[top].x &lt;&lt; " " &lt;&lt; stack[top].y &lt;&lt; endl;   // 调 试 </span>
+				top <span class="token operator">++</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+			<span class="token keyword">bool</span> once <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+			<span class="token keyword">if</span><span class="token punctuation">(</span>code<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token char">'E'</span> <span class="token operator">&amp;&amp;</span> FEn <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+				FEn <span class="token operator">--</span><span class="token punctuation">;</span>
+				once <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+				<span class="token comment">// 1. 判 断 变 量 重 名</span>
+				<span class="token keyword">int</span> ftop <span class="token operator">=</span> base<span class="token punctuation">;</span>
+				<span class="token comment">//cout &lt;&lt; "zhan:" &lt;&lt;base &lt;&lt; " " &lt;&lt; top &lt;&lt;endl;   // 调 试 </span>
+				<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token punctuation">;</span>ftop <span class="token operator">&lt;</span> top <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>ftop <span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+					<span class="token keyword">if</span><span class="token punctuation">(</span>stack<span class="token punctuation">[</span>ftop<span class="token punctuation">]</span><span class="token punctuation">.</span>i <span class="token operator">==</span> stack<span class="token punctuation">[</span>top <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span>outcome <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span><span class="token keyword">break</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
+				<span class="token punctuation">}</span>
+				<span class="token comment">// 2. 标 记 时 间 复 杂 度 @ stime</span>
+				<span class="token comment">//stime = "F" + stime;</span>
+				<span class="token keyword">if</span><span class="token punctuation">(</span>stack<span class="token punctuation">[</span>top <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>x <span class="token operator">==</span> <span class="token string">"n"</span> <span class="token operator">&amp;&amp;</span> stack<span class="token punctuation">[</span>top <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>y <span class="token operator">!=</span> <span class="token string">"n"</span><span class="token punctuation">)</span> stime <span class="token operator">+=</span> <span class="token string">"1"</span><span class="token punctuation">;</span>
+				<span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>stack<span class="token punctuation">[</span>top <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>y <span class="token operator">==</span> <span class="token string">"n"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+					<span class="token keyword">if</span><span class="token punctuation">(</span>stack<span class="token punctuation">[</span>top <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>x <span class="token operator">!=</span> <span class="token string">"n"</span><span class="token punctuation">)</span> stime <span class="token operator">+=</span> <span class="token string">"n"</span><span class="token punctuation">;</span>
+					<span class="token keyword">else</span> stime <span class="token operator">+=</span> <span class="token string">"c"</span><span class="token punctuation">;</span>
+				<span class="token punctuation">}</span>
+				<span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">Tonumber</span><span class="token punctuation">(</span>stack<span class="token punctuation">[</span>top <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>x<span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token function">Tonumber</span><span class="token punctuation">(</span>stack<span class="token punctuation">[</span>top <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>y<span class="token punctuation">)</span><span class="token punctuation">)</span> stime <span class="token operator">+=</span> <span class="token string">"1"</span><span class="token punctuation">;</span>
+				<span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">Tonumber</span><span class="token punctuation">(</span>stack<span class="token punctuation">[</span>top <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>x<span class="token punctuation">)</span> <span class="token operator">&lt;=</span> <span class="token function">Tonumber</span><span class="token punctuation">(</span>stack<span class="token punctuation">[</span>top <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>y<span class="token punctuation">)</span><span class="token punctuation">)</span> stime <span class="token operator">+=</span> <span class="token string">"c"</span><span class="token punctuation">;</span>
+				stime <span class="token operator">+=</span> <span class="token string">"E"</span><span class="token punctuation">;</span>
+				stack<span class="token punctuation">[</span>top <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">""</span><span class="token punctuation">,</span><span class="token string">""</span><span class="token punctuation">,</span><span class="token string">""</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+				top<span class="token operator">--</span><span class="token punctuation">;</span> <span class="token comment">// 遇 到 E 就 将 变 量 出 栈</span>
+			<span class="token punctuation">}</span>
+			<span class="token keyword">if</span><span class="token punctuation">(</span>code<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token char">'E'</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>once<span class="token punctuation">)</span> FEn <span class="token operator">--</span><span class="token punctuation">;</span>
 
-			if(FEn == 0){
-				//cout &lt;&lt; "stime :" &lt;&lt; stime &lt;&lt; endl;   // 调 试 
-				int t = checkTime(stime);
-				if(max_w &lt; t) max_w = t;
-				stime = "";
-			}
-			if(FEn &lt; 0 || (FEn != 0 &amp;&amp; i == L - 1)) { outcome = false;} // @ EF 不匹配
-		}
-		//cout &lt;&lt; "the_w :" &lt;&lt; max_w &lt;&lt; endl;   // 调 试 
-		if(the_o &amp;&amp; max_w != w) Notips = false;
-		else{
-			Notips = true;
-		}
-		if(!outcome) {cout &lt;&lt; "ERR" &lt;&lt;endl;} // @
-		else if(outcome &amp;&amp; Notips){
-			cout &lt;&lt; "Yes" &lt;&lt;endl;
-		}else if(outcome &amp;&amp; !Notips){
-			cout &lt;&lt; "No" &lt;&lt;endl;
-		}
-	}
-}
-int main()
-{
-	cin &gt;&gt; t;
-	for(int i = 0;i &lt; t;i ++){
-		func();
-	}
-	return 0;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+			<span class="token keyword">if</span><span class="token punctuation">(</span>FEn <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+				<span class="token comment">//cout &lt;&lt; "stime :" &lt;&lt; stime &lt;&lt; endl;   // 调 试 </span>
+				<span class="token keyword">int</span> t <span class="token operator">=</span> <span class="token function">checkTime</span><span class="token punctuation">(</span>stime<span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token keyword">if</span><span class="token punctuation">(</span>max_w <span class="token operator">&lt;</span> t<span class="token punctuation">)</span> max_w <span class="token operator">=</span> t<span class="token punctuation">;</span>
+				stime <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+			<span class="token keyword">if</span><span class="token punctuation">(</span>FEn <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token operator">||</span> <span class="token punctuation">(</span>FEn <span class="token operator">!=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> i <span class="token operator">==</span> L <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> outcome <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span><span class="token punctuation">}</span> <span class="token comment">// @ EF 不匹配</span>
+		<span class="token punctuation">}</span>
+		<span class="token comment">//cout &lt;&lt; "the_w :" &lt;&lt; max_w &lt;&lt; endl;   // 调 试 </span>
+		<span class="token keyword">if</span><span class="token punctuation">(</span>the_o <span class="token operator">&amp;&amp;</span> max_w <span class="token operator">!=</span> w<span class="token punctuation">)</span> Notips <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+		<span class="token keyword">else</span><span class="token punctuation">{</span>
+			Notips <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+		<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>outcome<span class="token punctuation">)</span> <span class="token punctuation">{</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"ERR"</span> <span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span><span class="token punctuation">}</span> <span class="token comment">// @</span>
+		<span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>outcome <span class="token operator">&amp;&amp;</span> Notips<span class="token punctuation">)</span><span class="token punctuation">{</span>
+			cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Yes"</span> <span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+		<span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>outcome <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>Notips<span class="token punctuation">)</span><span class="token punctuation">{</span>
+			cout <span class="token operator">&lt;&lt;</span> <span class="token string">"No"</span> <span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	cin <span class="token operator">&gt;&gt;</span> t<span class="token punctuation">;</span>
+	<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> t<span class="token punctuation">;</span>i <span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		<span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -1545,7 +1545,7 @@ int main()
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">13.1k</span>
+                        class="white-color">19.8k</span>
             
             
             

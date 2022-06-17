@@ -419,7 +419,7 @@ int gcd(int x,int y)
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-29
+                    2022-06-16
                 </div>
                 
 
@@ -465,51 +465,51 @@ int gcd(int x,int y)
 <span id="more"></span>
 
 <h1 id="最大公约数"><a href="#最大公约数" class="headerlink" title="最大公约数"></a>最大公约数</h1><h3 id="GCD【递归】"><a href="#GCD【递归】" class="headerlink" title="GCD【递归】"></a>GCD【递归】</h3><p>求最大公约数我只用下面这个，用别的咳嗽，不过大量取模会消耗性能</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int gcd(int x,int y)
-{
-    return !y ? x : gcd(y,x%y);
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">gcd</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span><span class="token keyword">int</span> y<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token operator">!</span>y <span class="token operator">?</span> x <span class="token operator">:</span> <span class="token function">gcd</span><span class="token punctuation">(</span>y<span class="token punctuation">,</span>x<span class="token operator">%</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="辗转相除-while"><a href="#辗转相除-while" class="headerlink" title="辗转相除(while)"></a>辗转相除(while)</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int gcd(int x,int y)
-{
-    while(y)
-    {
-        int tmp = y;
-        y = x%y;
-        x = tmp;
-    }
-    return x;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="辗转相除-while"><a href="#辗转相除-while" class="headerlink" title="辗转相除(while)"></a>辗转相除(while)</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">gcd</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span><span class="token keyword">int</span> y<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> tmp <span class="token operator">=</span> y<span class="token punctuation">;</span>
+        y <span class="token operator">=</span> x<span class="token operator">%</span>y<span class="token punctuation">;</span>
+        x <span class="token operator">=</span> tmp<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> x<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
-<h3 id="更相减损术"><a href="#更相减损术" class="headerlink" title="更相减损术"></a>更相减损术</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int gcd(int x,int y)
-{
-    while(x != y)
-    {
-        if(x &gt; y) x -= y;
-        if(y &gt; x) y -= x;
-    }
-    // x || y 就是 最大公约数
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="更相减损术"><a href="#更相减损术" class="headerlink" title="更相减损术"></a>更相减损术</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">gcd</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span><span class="token keyword">int</span> y<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>x <span class="token operator">!=</span> y<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>x <span class="token operator">&gt;</span> y<span class="token punctuation">)</span> x <span class="token operator">-=</span> y<span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>y <span class="token operator">&gt;</span> x<span class="token punctuation">)</span> y <span class="token operator">-=</span> x<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// x || y 就是 最大公约数</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="外挂【位运算？】"><a href="#外挂【位运算？】" class="headerlink" title="外挂【位运算？】"></a><del>外挂</del>【位运算？】</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">// @ first
-int gcd(int x,int y){
-    while(y&gt;0)
-    {
-        x=x%b;        /// --&gt;求出余数赋给a；
-        y=y^x;          ///--&gt;通过亦或运算，b的值变为其他值
-        x=x^y;          ///--&gt;a的值变为原b的值
-        y=y^x;          ///--&gt;b的值变为原a的值 
-    }
-    return  x;
-}
-// @ second
-int gcd(int x,int y)
-{
-    while(y^=x^=y^=x%=y);  // 后前后前后 
-    return x;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="外挂【位运算？】"><a href="#外挂【位运算？】" class="headerlink" title="外挂【位运算？】"></a><del>外挂</del>【位运算？】</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// @ first</span>
+<span class="token keyword">int</span> <span class="token function">gcd</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span><span class="token keyword">int</span> y<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>y<span class="token operator">&gt;</span><span class="token number">0</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        x<span class="token operator">=</span>x<span class="token operator">%</span>b<span class="token punctuation">;</span>        <span class="token comment">/// --&gt;求出余数赋给a；</span>
+        y<span class="token operator">=</span>y<span class="token operator">^</span>x<span class="token punctuation">;</span>          <span class="token comment">///--&gt;通过亦或运算，b的值变为其他值</span>
+        x<span class="token operator">=</span>x<span class="token operator">^</span>y<span class="token punctuation">;</span>          <span class="token comment">///--&gt;a的值变为原b的值</span>
+        y<span class="token operator">=</span>y<span class="token operator">^</span>x<span class="token punctuation">;</span>          <span class="token comment">///--&gt;b的值变为原a的值 </span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span>  x<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// @ second</span>
+<span class="token keyword">int</span> <span class="token function">gcd</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span><span class="token keyword">int</span> y<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>y<span class="token operator">^=</span>x<span class="token operator">^=</span>y<span class="token operator">^=</span>x<span class="token operator">%=</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 后前后前后 </span>
+    <span class="token keyword">return</span> x<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -1294,7 +1294,7 @@ int gcd(int x,int y)
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">13.1k</span>
+                        class="white-color">19.8k</span>
             
             
             

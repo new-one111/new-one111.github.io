@@ -418,7 +418,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-29
+                    2022-06-16
                 </div>
                 
 
@@ -470,32 +470,32 @@
 </ul>
 <h1 id="约数"><a href="#约数" class="headerlink" title="约数"></a>约数</h1><p>求小数 （ &lt;= 1e5）约数的问题一般都 不是问题，但遇到求 n 个 a 相乘的约数 （个数 &amp;&amp; 和）时，一般的暴力枚举就不太适用了</p>
 <h2 id="求n的约数"><a href="#求n的约数" class="headerlink" title="求n的约数"></a>求n的约数</h2><p>一般来说 ，我们经常用枚举法求约数，从2 ~ n-1开始枚举，如果 n % i == 0 则这就是要求的一个约数</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">for(int i = 2;i &lt; n;i ++) {
-    if(n%i == 0) cnt ++;
-}
-cout &lt;&lt; cnt + 2 &lt;&lt; endl; // 1 n<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span>i <span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>n<span class="token operator">%</span>i <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> cnt <span class="token operator">++</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+cout <span class="token operator">&lt;&lt;</span> cnt <span class="token operator">+</span> <span class="token number">2</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token comment">// 1 n</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>当 n 很小时，大概 1e5 ?，这样做是完全没有问题的，但当 n 的范围 为 <code>1 ~ 1e9</code>时，酱紫枚举是会出问题的。</p>
 <p>我们如何去做呢？万能的数学告诉我们 要多思考。我们来看一个具体的样例  求 10 的约数<code>1 2 5 10</code>对吧分开来看 <code>1 10</code>和<code>2 5</code>之间有什么关系，</p>
 <p>啊对对对，是 相乘为n是吧，这样我们就知道了 ，约数总是成对出现的。 这样就是得到了 <code>试除法</code>求约数。</p>
-<h3 id="试除法求约数"><a href="#试除法求约数" class="headerlink" title="试除法求约数"></a>试除法求约数</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;bits/stdc++.h&gt;
-using namespace std;
+<h3 id="试除法求约数"><a href="#试除法求约数" class="headerlink" title="试除法求约数"></a>试除法求约数</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h&gt;</span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
-vector&lt;int&gt;divisor;
-int main()
-{
-    int n;
-    cin &gt;&gt; n;
-    for(int i = 1;i &lt;= n/i;i ++)
-        if(n % i == 0) 
-        {
-            divisor.push_back(i); // i 放入数组
-            if(i != n/i) divisor.push_back(n/i);// 如果不是 i * i = n 的情况下，将 n/i加入数组
-        }
-    for(int i = 0;i &lt; divisor.size();i ++) cout &lt;&lt; divisor[i] &lt;&lt; " ";
-    cout &lt;&lt; endl;
-    return 0;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span>divisor<span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> n<span class="token punctuation">;</span>
+    cin <span class="token operator">&gt;&gt;</span> n<span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>i <span class="token operator">&lt;=</span> n<span class="token operator">/</span>i<span class="token punctuation">;</span>i <span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>n <span class="token operator">%</span> i <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> 
+        <span class="token punctuation">{</span>
+            divisor<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// i 放入数组</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>i <span class="token operator">!=</span> n<span class="token operator">/</span>i<span class="token punctuation">)</span> divisor<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>n<span class="token operator">/</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 如果不是 i * i = n 的情况下，将 n/i加入数组</span>
+        <span class="token punctuation">}</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> divisor<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>i <span class="token operator">++</span><span class="token punctuation">)</span> cout <span class="token operator">&lt;&lt;</span> divisor<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> <span class="token string">" "</span><span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="求-n-个数乘积的约数的个数"><a href="#求-n-个数乘积的约数的个数" class="headerlink" title="求 n 个数乘积的约数的个数"></a>求 n 个数乘积的约数的个数</h2><p>如题 ： 输入 n ，并给定 n个数 a[n] ，a 的范围满足 1 &lt;= a &lt;=1e9 , 1 &lt;= n &lt;= 100, 如何解决呢？</p>
 <p>先来分析暴力能做吗？很明显， 100 个 1000000000相乘我们没法存，即使你是 ull 也不行，所以pass暴力。</p>
@@ -503,36 +503,36 @@ int main()
 <p>数学方法：<strong>分解质因数</strong></p>
 <p><img src="/images/%E5%88%86%E8%A7%A3%E8%B4%A8%E5%9B%A0%E6%95%B0.png"></p>
 <p>如图，很好理解，开写</p>
-<h3 id="分解质因数求约数个数"><a href="#分解质因数求约数个数" class="headerlink" title="分解质因数求约数个数"></a>分解质因数求约数个数</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;bits/stdc++.h&gt;
-using namespace std;
-const int mod = 1e9 + 7;
-map&lt;int,int&gt;prime; // 记录质因数 和 质因数的指数
-void get_divisor(int n)
-{
-    for(int i = 2;i &lt;= n/i;i ++)
-        while(n % i == 0) 
-        {
-            prime[i] ++; 
-            n /= i;
-        }
-    if(n &gt; 1) prime[n] ++; // n 
-}
-int main()
-{
-    int n;
-    cin &gt;&gt; n;
-    while(n --)
-    {
-        int a;
-        cin &gt;&gt; a;
-        get_divisor(a); // 获 得 质 因 数
-    }
-    //求个数
-    long long res = 1; // 记得开 long long
-    for(auto c : prime) res = res * (c.second + 1) % mod; 
-    cout &lt;&lt; res &lt;&lt; endl;
-    return 0;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="分解质因数求约数个数"><a href="#分解质因数求约数个数" class="headerlink" title="分解质因数求约数个数"></a>分解质因数求约数个数</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;bits/stdc++.h&gt;</span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token keyword">int</span> mod <span class="token operator">=</span> <span class="token number">1e9</span> <span class="token operator">+</span> <span class="token number">7</span><span class="token punctuation">;</span>
+map<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span><span class="token keyword">int</span><span class="token operator">&gt;</span>prime<span class="token punctuation">;</span> <span class="token comment">// 记录质因数 和 质因数的指数</span>
+<span class="token keyword">void</span> <span class="token function">get_divisor</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>i <span class="token operator">&lt;=</span> n<span class="token operator">/</span>i<span class="token punctuation">;</span>i <span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>n <span class="token operator">%</span> i <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> 
+        <span class="token punctuation">{</span>
+            prime<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">++</span><span class="token punctuation">;</span> 
+            n <span class="token operator">/=</span> i<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>n <span class="token operator">&gt;</span> <span class="token number">1</span><span class="token punctuation">)</span> prime<span class="token punctuation">[</span>n<span class="token punctuation">]</span> <span class="token operator">++</span><span class="token punctuation">;</span> <span class="token comment">// n </span>
+<span class="token punctuation">}</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> n<span class="token punctuation">;</span>
+    cin <span class="token operator">&gt;&gt;</span> n<span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>n <span class="token operator">--</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> a<span class="token punctuation">;</span>
+        cin <span class="token operator">&gt;&gt;</span> a<span class="token punctuation">;</span>
+        <span class="token function">get_divisor</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 获 得 质 因 数</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">//求个数</span>
+    <span class="token keyword">long</span> <span class="token keyword">long</span> res <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">// 记得开 long long</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">auto</span> c <span class="token operator">:</span> prime<span class="token punctuation">)</span> res <span class="token operator">=</span> res <span class="token operator">*</span> <span class="token punctuation">(</span>c<span class="token punctuation">.</span>second <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">%</span> mod<span class="token punctuation">;</span> 
+    cout <span class="token operator">&lt;&lt;</span> res <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -542,41 +542,41 @@ int main()
 <p><img src="/images/%E7%BA%A6%E6%95%B0%E4%B9%8B%E5%92%8C.jpg"></p>
 <p>计算 各质因数（等比数列）在作积。<del>数学方法，我也不懂。</del></p>
 <p>开写</p>
-<h3 id="分解质因数求乘积的约数之和"><a href="#分解质因数求乘积的约数之和" class="headerlink" title="分解质因数求乘积的约数之和"></a>分解质因数求乘积的约数之和</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;bits/stdc++.h&gt;
+<h3 id="分解质因数求乘积的约数之和"><a href="#分解质因数求乘积的约数之和" class="headerlink" title="分解质因数求乘积的约数之和"></a>分解质因数求乘积的约数之和</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h&gt;</span></span>
 
-using namespace std;
-const int mod = 1e9 + 7;
-map&lt;int,int&gt;prime;
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token keyword">int</span> mod <span class="token operator">=</span> <span class="token number">1e9</span> <span class="token operator">+</span> <span class="token number">7</span><span class="token punctuation">;</span>
+map<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span><span class="token keyword">int</span><span class="token operator">&gt;</span>prime<span class="token punctuation">;</span>
 
-int main()
-{
-    int n;
-    cin &gt;&gt; n;
-    while(n--)
-    {
-        int a;
-        cin &gt;&gt; a;
-        // 接下来操作一样 先求出 质因数 map
-        for(int i = 2;i &lt;= a/i;i ++)
-            while(a % i == 0) 
-            {
-                prime[i] ++;
-                a /= i;
-            }
-        if(a &gt; 1) prime[a] ++; // 
-    }
-    long long ans = 1;
-    for(auto c : prime) 
-    {
-        long long res = 1; // 不能放外面
-        int a = c.first;
-        int b = c.second;
-        while(b --) res = (res * a + 1) % mod; // 求出 单个的质因数 的等比数列和
-        ans = ans * res % mod;
-    }
-    cout &lt;&lt; ans &lt;&lt; endl;
-    return 0;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> n<span class="token punctuation">;</span>
+    cin <span class="token operator">&gt;&gt;</span> n<span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>n<span class="token operator">--</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> a<span class="token punctuation">;</span>
+        cin <span class="token operator">&gt;&gt;</span> a<span class="token punctuation">;</span>
+        <span class="token comment">// 接下来操作一样 先求出 质因数 map</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>i <span class="token operator">&lt;=</span> a<span class="token operator">/</span>i<span class="token punctuation">;</span>i <span class="token operator">++</span><span class="token punctuation">)</span>
+            <span class="token keyword">while</span><span class="token punctuation">(</span>a <span class="token operator">%</span> i <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> 
+            <span class="token punctuation">{</span>
+                prime<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">++</span><span class="token punctuation">;</span>
+                a <span class="token operator">/=</span> i<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>a <span class="token operator">&gt;</span> <span class="token number">1</span><span class="token punctuation">)</span> prime<span class="token punctuation">[</span>a<span class="token punctuation">]</span> <span class="token operator">++</span><span class="token punctuation">;</span> <span class="token comment">// </span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">long</span> <span class="token keyword">long</span> ans <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">auto</span> c <span class="token operator">:</span> prime<span class="token punctuation">)</span> 
+    <span class="token punctuation">{</span>
+        <span class="token keyword">long</span> <span class="token keyword">long</span> res <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">// 不能放外面</span>
+        <span class="token keyword">int</span> a <span class="token operator">=</span> c<span class="token punctuation">.</span>first<span class="token punctuation">;</span>
+        <span class="token keyword">int</span> b <span class="token operator">=</span> c<span class="token punctuation">.</span>second<span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>b <span class="token operator">--</span><span class="token punctuation">)</span> res <span class="token operator">=</span> <span class="token punctuation">(</span>res <span class="token operator">*</span> a <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">%</span> mod<span class="token punctuation">;</span> <span class="token comment">// 求出 单个的质因数 的等比数列和</span>
+        ans <span class="token operator">=</span> ans <span class="token operator">*</span> res <span class="token operator">%</span> mod<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    cout <span class="token operator">&lt;&lt;</span> ans <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>over</p>
 
@@ -1352,7 +1352,7 @@ int main()
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">13.1k</span>
+                        class="white-color">19.8k</span>
             
             
             
