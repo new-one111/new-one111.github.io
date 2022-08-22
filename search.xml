@@ -13,10 +13,16 @@
       
       <categories>
           
-          <category> 图论 </category>
+          <category> 数据结构 </category>
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 图 </tag>
+            
+        </tags>
       
     </entry>
     
