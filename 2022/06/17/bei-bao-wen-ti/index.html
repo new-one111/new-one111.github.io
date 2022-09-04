@@ -4,12 +4,13 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="深搜基础篇, RufuCodeZone">
-    <meta name="description" content="如题：DFS基础
+    <meta name="keywords" content="背包问题, RufuCodeZone">
+    <meta name="description" content="如题： 背包
 
 
-深度优先搜索方格填数
-">
+背包最近洛谷刷背包题，许多题有很多疑点没有解决，有必要小结一下，都摸了什么题，这样下去，说不定哪天就棕了有必要去思考一下，初始化的问题。
+01背包01背包的这类问题非常的明了
+给定N个物品，和一个体积为 M 的背包， 每个">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -32,7 +33,7 @@
     </style>
 
 
-    <title>深搜基础篇 | RufuCodeZone</title>
+    <title>背包问题 | RufuCodeZone</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -113,34 +114,44 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/about" class="waves-effect waves-light">
+    <a href="" class="waves-effect waves-light">
+
       
       <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
       
-      <span>关于</span>
+      <span>更多</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
     </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/contact" class="waves-effect waves-light">
+    <ul class="sub-nav menus_item_child ">
       
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      <li>
+        <a href="/about">
+          
+          <i class="fas fa-user-circle" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>关于</span>
+        </a>
+      </li>
       
-      <span>留言板</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/friends" class="waves-effect waves-light">
+      <li>
+        <a href="/contact">
+          
+          <i class="fas fa-comments" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>留言</span>
+        </a>
+      </li>
       
-      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      <li>
+        <a href="/friends">
+          
+          <i class="fas fa-address-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>友链</span>
+        </a>
+      </li>
       
-      <span>友情链接</span>
-    </a>
+    </ul>
     
   </li>
   
@@ -214,34 +225,46 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/about" class="waves-effect waves-light">
+		<a href="javascript:;">
 			
-			    <i class="fa-fw fas fa-user-circle"></i>
+				<i class="fa-fw fas fa-user-circle"></i>
 			
-			关于
+			更多
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
 		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/contact" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-comments"></i>
-			
-			留言板
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/friends" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-address-book"></i>
-			
-			友情链接
-		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/about " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-user-circle" style="position: absolute;left:50px" ></i>
+			      
+		          <span>关于</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/contact " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-comments" style="position: absolute;left:50px" ></i>
+			      
+		          <span>留言</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/friends " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-address-book" style="position: absolute;left:50px" ></i>
+			      
+		          <span>友链</span>
+                  </a>
+                </li>
+              
+            </ul>
           
         </li>
         
@@ -261,12 +284,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">深搜基础篇</h1>
+                    <h1 class="description center-align post-title">背包问题</h1>
                 </div>
             </div>
         </div>
@@ -382,8 +405,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/DFS/">
-                                <span class="chip bg-color">DFS</span>
+                            <a href="/tags/%E8%83%8C%E5%8C%85/">
+                                <span class="chip bg-color">背包</span>
                             </a>
                         
                     </div>
@@ -394,8 +417,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%9D%82%E8%AE%B0/" class="post-category">
-                                杂记
+                            <a href="/categories/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" class="post-category">
+                                动态规划
                             </a>
                         
                     </div>
@@ -414,14 +437,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-06-16
+                    2022-09-05
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    15
+                    490
                 </div>
                 
 
@@ -456,10 +479,46 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>如题：DFS基础</p>
+                <p>如题： 背包</p>
 <span id="more"></span>
 
-<h1 id="深度优先搜索"><a href="#深度优先搜索" class="headerlink" title="深度优先搜索"></a>深度优先搜索</h1><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1406">方格填数</a></p>
+<h1 id="背包"><a href="#背包" class="headerlink" title="背包"></a>背包</h1><p>最近洛谷刷背包题，许多题有很多疑点没有解决，有必要小结一下，都摸了什么题，这样下去，说不定哪天就棕了<br>有必要去思考一下，<strong>初始化</strong>的问题。</p>
+<h2 id="01背包"><a href="#01背包" class="headerlink" title="01背包"></a>01背包</h2><p>01背包的这类问题非常的明了</p>
+<p>给定N个物品，和一个体积为 M 的背包， 每个物品只能使用一次。</p>
+<p>每个物品具有一个体积，一个价值， 问你这个背包怎么装，才能让总价值最大。</p>
+<p><strong>01背包</strong>的最大特点，就是每个物品只能被使用一次。<br>分析：对于第 x 个物品，有两种情况</p>
+<table>
+<thead>
+<tr>
+<th>状态</th>
+<th>结果</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>体积使背包溢出</td>
+<td>f [i，j] = f[i - 1，j]</td>
+<td></td>
+</tr>
+<tr>
+<td>体积未溢出</td>
+<td>①不选 ：f [i，j] = f[i - 1，j]</td>
+<td>②选择：f[i,j] = f[i - 1,j - v] + w</td>
+</tr>
+</tbody></table>
+<p>根据要求的背包属性，决定取**max{1,2}<strong>还是</strong>min{1,2}**。</p>
+<h2 id="完全背包"><a href="#完全背包" class="headerlink" title="完全背包"></a>完全背包</h2><p>目前无，太懒了</p>
+<h2 id="多重背包"><a href="#多重背包" class="headerlink" title="多重背包"></a>多重背包</h2><p>目前无，太懒了</p>
+<h2 id="有依赖的背包"><a href="#有依赖的背包" class="headerlink" title="有依赖的背包"></a>有依赖的背包</h2><p>目前无，太懒了</p>
+<h2 id="分组背包"><a href="#分组背包" class="headerlink" title="分组背包"></a>分组背包</h2><p>目前无，太懒了</p>
+<h2 id="题单"><a href="#题单" class="headerlink" title="题单"></a>题单</h2><p>主要遇到的类型：</p>
+<p>朴素的01背包板子</p>
+<p>简单改变01背包的属性，比如将最大的价值，改为价值乘上一个数。<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1060">P1060 开心的金明</a></p>
+<p>结果的处理，比如有些01背包输出的是 **f[m]<strong>表示，不超过m体积的最大价值，而现在，我们可能遇到，输出</strong>f[k]<strong>，或者对</strong>f[k(k &lt;= m)]**进行处理得到结果。<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1926">P1926 小书童——刷题大军</a></p>
+<p>隐晦的01背包问题：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1802">P1802 5倍经验日</a> 这个问题，01状态是什么？ **药够{1，不打 || 2 ，打} || 药不够{不打}**。</p>
+<p>和数学相关的背包DP， 比如将 <strong>1 - n</strong> 个数划分为相等的两个集合（指集合的和相等，前提是保证无序性）。<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1466">P1466 USACO2.2]集合 Subset Sums</a></p>
+<p>未完待续…</p>
+<p><strong>提单（来源于<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/training/8917#information">洛谷</a>）：</strong></p>
 
                 
             </div>
@@ -486,7 +545,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://rufu.space/2022/06/17/shen-sou-ji-chu-pian/">http://rufu.space/2022/06/17/shen-sou-ji-chu-pian/</a>
+                    <a href="http://rufu.space/2022/06/17/bei-bao-wen-ti/">http://rufu.space/2022/06/17/bei-bao-wen-ti/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -524,8 +583,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/DFS/">
-                                    <span class="chip bg-color">DFS</span>
+                                <a href="/tags/%E8%83%8C%E5%8C%85/">
+                                    <span class="chip bg-color">背包</span>
                                 </a>
                             
                         </div>
@@ -974,19 +1033,19 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/06/17/zuo-ti-qing-dan/">
+                <a href="/2022/06/17/guo-wang-you-xi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="做题清单">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="国王游戏">
                         
-                        <span class="card-title">做题清单</span>
+                        <span class="card-title">国王游戏</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            摸了什么题
+                            如题：国王吃饱了撑的
                         
                     </div>
                     <div class="publish-info">
@@ -997,8 +1056,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%9D%82%E8%AE%B0/" class="post-category">
-                                    杂记
+                            <a href="/categories/%E9%A2%98%E8%A7%A3/" class="post-category">
+                                    题解
                                 </a>
                             
                             
@@ -1008,8 +1067,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%91%B8%E9%B1%BC/">
-                        <span class="chip bg-color">摸鱼</span>
+                    <a href="/tags/%E8%B4%AA%E5%BF%83/">
+                        <span class="chip bg-color">贪心</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%AB%98%E7%B2%BE%E5%BA%A6/">
+                        <span class="chip bg-color">高精度</span>
                     </a>
                     
                 </div>
@@ -1023,19 +1086,19 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/06/17/kuan-sou-ji-chu-pian/">
+                <a href="/2022/06/17/gao-jing/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="宽搜BFS基础篇">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="高精度">
                         
-                        <span class="card-title">宽搜BFS基础篇</span>
+                        <span class="card-title">高精度</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            如题：BFS基础
+                            这是一篇关于 【高精度】的随笔
                         
                     </div>
                     <div class="publish-info">
@@ -1046,8 +1109,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%9D%82%E8%AE%B0/" class="post-category">
-                                    杂记
+                            <a href="/categories/%E6%A8%A1%E6%9D%BF/" class="post-category">
+                                    模板
                                 </a>
                             
                             
@@ -1057,8 +1120,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/BFS/">
-                        <span class="chip bg-color">BFS</span>
+                    <a href="/tags/%E9%AB%98%E7%B2%BE%E5%BA%A6/">
+                        <span class="chip bg-color">高精度</span>
                     </a>
                     
                 </div>
@@ -1124,8 +1187,6 @@
 
 
 <!-- 代码块收缩 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
 
 
     </div>
@@ -1214,6 +1275,13 @@
 </main>
 
 
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
+
 
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 
@@ -1233,7 +1301,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">21.1k</span>
+                        class="white-color">20.6k</span>
             
             
             
@@ -1506,6 +1574,8 @@ $(function () {
     })();
 </script>
 
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
     
     
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>

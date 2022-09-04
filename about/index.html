@@ -109,34 +109,44 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/about" class="waves-effect waves-light">
+    <a href="" class="waves-effect waves-light">
+
       
       <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
       
-      <span>关于</span>
+      <span>更多</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
     </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/contact" class="waves-effect waves-light">
+    <ul class="sub-nav menus_item_child ">
       
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      <li>
+        <a href="/about">
+          
+          <i class="fas fa-user-circle" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>关于</span>
+        </a>
+      </li>
       
-      <span>留言板</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/friends" class="waves-effect waves-light">
+      <li>
+        <a href="/contact">
+          
+          <i class="fas fa-comments" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>留言</span>
+        </a>
+      </li>
       
-      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      <li>
+        <a href="/friends">
+          
+          <i class="fas fa-address-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>友链</span>
+        </a>
+      </li>
       
-      <span>友情链接</span>
-    </a>
+    </ul>
     
   </li>
   
@@ -210,34 +220,46 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/about" class="waves-effect waves-light">
+		<a href="javascript:;">
 			
-			    <i class="fa-fw fas fa-user-circle"></i>
+				<i class="fa-fw fas fa-user-circle"></i>
 			
-			关于
+			更多
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
 		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/contact" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-comments"></i>
-			
-			留言板
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/friends" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-address-book"></i>
-			
-			友情链接
-		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/about " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-user-circle" style="position: absolute;left:50px" ></i>
+			      
+		          <span>关于</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/contact " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-comments" style="position: absolute;left:50px" ></i>
+			      
+		          <span>留言</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/friends " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-address-book" style="position: absolute;left:50px" ></i>
+			      
+		          <span>友链</span>
+                  </a>
+                </li>
+              
+            </ul>
           
         </li>
         
@@ -279,9 +301,9 @@
                     var typed = new Typed("#subtitle", {
                         strings: [ 
                             
-                                "从来没有真正的绝境, 只有心灵的迷途",
+                                "滴滴答答",
                             
-                                "Never really desperate, only the lost of the soul",
+                                "hua la hua la",
                             
                         ],
                         startDelay: 300,
@@ -324,7 +346,7 @@
 
 
 <div class="statis">
-    <span class="count"><a href="/categories">6</a></span>
+    <span class="count"><a href="/categories">8</a></span>
     <span class="name">分类</span>
 </div>
 
@@ -354,7 +376,7 @@
 
 
 <div class="statis">
-    <span class="count"><a href="/categories">6</a></span>
+    <span class="count"><a href="/categories">8</a></span>
     <span class="name">分类</span>
 </div>
 
@@ -487,7 +509,7 @@
         },
         xAxis: {
             type: 'category',
-            data: ["2021-08","2021-09","2021-10","2021-11","2021-12","2022-01","2022-02","2022-03","2022-04","2022-05","2022-06","2022-07","2022-08"]
+            data: ["2021-09","2021-10","2021-11","2021-12","2022-01","2022-02","2022-03","2022-04","2022-05","2022-06","2022-07","2022-08","2022-09"]
         },
         yAxis: {
             type: 'value',
@@ -497,7 +519,7 @@
                 name: '文章篇数',
                 type: 'line',
                 color: ['#6772e5'],
-                data: [0,0,0,0,0,0,0,0,0,0,28,0,0],
+                data: [0,0,0,0,0,0,0,0,0,27,0,0,1],
                 markPoint: {
                     symbolSize: 45,
                     color: ['#fa755a','#3ecf8e','#82d3f4'],
@@ -539,7 +561,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"蓝桥杯","value":3},{"name":"博客搭建","value":1},{"name":"杂记","value":4},{"name":"模板","value":7},{"name":"题解","value":9},{"name":"数据结构","value":3}],
+                data: [{"name":"蓝桥杯","value":3},{"name":"博客搭建","value":1},{"name":"杂记","value":1},{"name":"模板","value":8},{"name":"题解","value":9},{"name":"数据结构","value":2},{"name":"搜索","value":2},{"name":"动态规划","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -563,7 +585,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["数论","模拟","知识散记","高精度","图","栈","GCD","递归","暴力","摸鱼"]
+                data: ["数论","知识散记","模拟","高精度","栈","GCD","递归","暴力","前缀和","贪心"]
             }
         ],
         yAxis: [
@@ -576,7 +598,7 @@
                 type: 'bar',
                 color: ['#82d3f4'],
                 barWidth : 18,
-                data: [4,3,2,2,2,2,2,2,1,1],
+                data: [4,3,3,2,2,2,2,1,1,1],
                 markPoint: {
                     symbolSize: 45,
                     data: [{
@@ -620,20 +642,20 @@
         
         
         <div class="photo col s12 m6 l4" data-aos="fade-up">
-            <div class="img-item" data-src="/medias/featureimages/0.jpg">
-                <img src="/medias/featureimages/0.jpg" class="responsive-img">
+            <div class="img-item" data-src="/medias/featureimages/3.jpg">
+                <img src="/medias/featureimages/3.jpg" class="responsive-img">
             </div>
         </div>
         
         <div class="photo col s12 m6 l4" data-aos="fade-up">
-            <div class="img-item" data-src="/medias/featureimages/1.jpg">
-                <img src="/medias/featureimages/1.jpg" class="responsive-img">
+            <div class="img-item" data-src="/medias/featureimages/4.jpg">
+                <img src="/medias/featureimages/4.jpg" class="responsive-img">
             </div>
         </div>
         
         <div class="photo col s12 m6 l4" data-aos="fade-up">
-            <div class="img-item" data-src="/medias/featureimages/2.jpg">
-                <img src="/medias/featureimages/2.jpg" class="responsive-img">
+            <div class="img-item" data-src="/medias/featureimages/9.jpg">
+                <img src="/medias/featureimages/9.jpg" class="responsive-img">
             </div>
         </div>
         
@@ -678,7 +700,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">21.1k</span>
+                        class="white-color">20.6k</span>
             
             
             
@@ -951,6 +973,8 @@ $(function () {
     })();
 </script>
 
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
     
     
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>
