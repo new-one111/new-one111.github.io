@@ -18,15 +18,6 @@
 
 
     
-    <style>
-        body{
-            background-image: url(https://s1.ax1x.com/2022/07/14/jfpBUf.png);
-            background-repeat:no-repeat;
-            background-size: 100% 100%;
-            background-attachment:fixed;
-        }
-    </style>
-
 
     <title>关于 | RufuCode</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
@@ -624,7 +615,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"杂记","value":1},{"name":"Atcoder","value":1},{"name":"题解","value":9},{"name":"模板","value":9},{"name":"搜索","value":2},{"name":"数据结构","value":2},{"name":"博客搭建","value":1},{"name":"蓝桥杯","value":3}],
+                data: [{"name":"杂记","value":1},{"name":"模板","value":9},{"name":"Atcoder","value":1},{"name":"搜索","value":2},{"name":"数据结构","value":2},{"name":"题解","value":9},{"name":"蓝桥杯","value":3},{"name":"博客搭建","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -648,7 +639,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["数论","知识散记","模拟","GCD","递归","高精度","栈","题解","前缀和","图论"]
+                data: ["数论","知识散记","模拟","GCD","递归","高精度","栈","前缀和","题解","图论"]
             }
         ],
         yAxis: [
@@ -1002,17 +993,17 @@ $(function () {
     
 
     <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
      
         <script type="text/javascript">
             // 只在桌面版网页启用特效
             var windowWidth = $(window).width();
             if (windowWidth > 768) {
-                document.write('<script type="text/javascript" src="/libs/others/snow.js"><\/script>');
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
             }
         </script>
-    
-
-    <!-- 鼠标星星特效 -->
     
 
     
@@ -1049,9 +1040,16 @@ $(function () {
     <!--腾讯兔小巢-->
     
     
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
 
     
 
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
     
 
     
