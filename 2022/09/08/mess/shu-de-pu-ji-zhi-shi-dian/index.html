@@ -4,12 +4,14 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="简单的桶排序, RufuCode">
-    <meta name="description" content="排序算法之桶排序
+    <meta name="keywords" content="树的基础相关, RufuCode">
+    <meta name="description" content="一些关于树的普及知识点
 
 
-排序算法之桶排序适用条件将一组数升序排序，保证所有数据处于[a,b]区间内。
-算法描述将[a,b]均匀的划分为 n 份，每一份就是一个桶，将所有的数据按大小放到桶里，每个桶独立排序，排序按顺序遍历输出每一个桶中的数据。">
+树树的基本结构不多加解释，只需要知道树是特别的图：“无环图”，所以除了一些特别的算法，树的存边方式基本与图的保持一致，这里主要分析二叉树。
+树的一些性质
+$(1)$ 子树大小，即以每个节点为根的子树大小
+$(2)">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -23,7 +25,7 @@
 
     
 
-    <title>简单的桶排序 | RufuCode</title>
+    <title>树的基础相关 | RufuCode</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -337,12 +339,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">简单的桶排序</h1>
+                    <h1 class="description center-align post-title">树的基础相关</h1>
                 </div>
             </div>
         </div>
@@ -458,8 +460,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%8E%92%E5%BA%8F/">
-                                <span class="chip bg-color">排序</span>
+                            <a href="/tags/%E5%A4%9A%E5%8F%89%E6%A0%91/">
+                                <span class="chip bg-color">多叉树</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%94%9F%E6%88%90%E6%A0%91/">
+                                <span class="chip bg-color">生成树</span>
                             </a>
                         
                     </div>
@@ -470,8 +476,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E9%A2%98%E8%A7%A3/" class="post-category">
-                                题解
+                            <a href="/categories/%E5%9B%BE%E8%AE%BA/" class="post-category">
+                                图论
                             </a>
                         
                     </div>
@@ -483,28 +489,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-06-17
+                    2022-09-08
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-06-16
+                    2022-09-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    461
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    5 分
                 </div>
                 
 
@@ -527,67 +533,142 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>排序算法之桶排序</p>
+                <p>一些关于树的普及知识点</p>
 <span id="more"></span>
 
-<h1 id="排序算法之桶排序"><a href="#排序算法之桶排序" class="headerlink" title="排序算法之桶排序"></a>排序算法之桶排序</h1><h2 id="适用条件"><a href="#适用条件" class="headerlink" title="适用条件"></a>适用条件</h2><p>将一组数升序排序，保证所有数据处于[a,b]区间内。</p>
-<h2 id="算法描述"><a href="#算法描述" class="headerlink" title="算法描述"></a>算法描述</h2><p>将[a,b]均匀的划分为 n 份，每一份就是一个桶，将所有的数据按大小放到桶里，每个桶独立排序，排序按顺序遍历输出每一个桶中的数据。</p>
-<hr>
-<p><img src="https://img-blog.csdnimg.cn/20190219081232815.png" alt="img"></p>
-<h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><h3 id="0-1-排序"><a href="#0-1-排序" class="headerlink" title="[0,1)排序"></a>[0,1)排序</h3><p>问题描述：将{0.12,0.07,0.89,0.54,0.36,0,73,0.82,0.01,0.32，0.15}升序排列</p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">输入<span class="token operator">:</span>
-<span class="token number">10</span>
-<span class="token number">0.12</span> <span class="token number">0.07</span> <span class="token number">0.89</span> <span class="token number">0.54</span> <span class="token number">0.36</span> <span class="token number">0.73</span> <span class="token number">0.82</span> <span class="token number">0.01</span> <span class="token number">0.32</span> <span class="token number">0.15</span>
-输出<span class="token operator">:</span>
-<span class="token number">0.01</span> <span class="token number">0.07</span> <span class="token number">0.12</span> <span class="token number">0.15</span> <span class="token number">0.32</span> <span class="token number">0.36</span> <span class="token number">0.54</span> <span class="token number">0.73</span> <span class="token number">0.82</span> <span class="token number">0.89</span>
-<span class="token comment">//代码</span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream&gt;</span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;string.h&gt;</span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;algorithm&gt;</span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;vector&gt;</span></span>
-<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token keyword">int</span> n<span class="token punctuation">;</span>
-    <span class="token keyword">double</span> a<span class="token punctuation">,</span> fid<span class="token punctuation">;</span>
-    vector<span class="token operator">&lt;</span><span class="token keyword">double</span><span class="token operator">&gt;</span> basket<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">;</span>    
-    cin <span class="token operator">&gt;&gt;</span> n<span class="token punctuation">;</span>
-    fid <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">/</span> <span class="token number">5</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span>i <span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        cin <span class="token operator">&gt;&gt;</span> a<span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>a <span class="token operator">&lt;</span> fid<span class="token punctuation">)</span>
-            basket<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>a <span class="token operator">&lt;</span> <span class="token number">2</span> <span class="token operator">*</span> fid<span class="token punctuation">)</span>
-            basket<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>a <span class="token operator">&lt;</span> <span class="token number">3</span> <span class="token operator">*</span> fid<span class="token punctuation">)</span>
-            basket<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>a <span class="token operator">&lt;</span> <span class="token number">4</span> <span class="token operator">*</span> fid<span class="token punctuation">)</span>
-            basket<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">else</span>
-            basket<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token function">sort</span><span class="token punctuation">(</span>basket<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> basket<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">sort</span><span class="token punctuation">(</span>basket<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> basket<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">sort</span><span class="token punctuation">(</span>basket<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> basket<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">sort</span><span class="token punctuation">(</span>basket<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> basket<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
-    <span class="token function">sort</span><span class="token punctuation">(</span>basket<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> basket<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">;</span>i <span class="token operator">++</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        vector<span class="token operator">&lt;</span><span class="token keyword">double</span><span class="token operator">&gt;</span><span class="token double-colon punctuation">::</span>iterator it <span class="token operator">=</span> basket<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span>it<span class="token punctuation">;</span> it <span class="token operator">!=</span> basket<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>it <span class="token operator">++</span><span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            cout <span class="token operator">&lt;&lt;</span> <span class="token punctuation">(</span><span class="token operator">*</span>it<span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> <span class="token string">" "</span><span class="token punctuation">;</span>
+<h1 id="树"><a href="#树" class="headerlink" title="树"></a>树</h1><p>树的基本结构不多加解释，只需要知道树是特别的图：<code>“无环图”</code>，所以除了一些特别的算法，树的存边方式基本与图的保持一致，这里主要分析二叉树。</p>
+<p><strong>树的一些性质</strong></p>
+<p>$(1)$ 子树大小，即以每个节点为根的子树大小</p>
+<p>$(2)$ 树的直径，树上最远两点的距离</p>
+<p>$(3)$ 树的深度，以根节点为起点到最远子叶的单位距离</p>
+<p>$(4)$ 节点的度，节点拥有的子树个数</p>
+<h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><p>二叉树是一种树形结构，特点是对于每一个父节点，最多有两个子节点，即左儿子和右儿子。<br><img src="/images/%E5%9B%BE%E8%AE%BA/%E4%BA%8C%E5%8F%89%E6%A0%91.jpg" alt="二叉树基本结构"><br><strong>二叉树的一些性质</strong></p>
+<p>$(1)$ 二叉树的第$i$层上最多有$2^{i-1}$个节点</p>
+<p>$(2)$ 若在任意一棵二叉树中，有$n_0$个叶子节点，有$n_2$个度为2的节点，则必有$n_0=n_2+1$</p>
+<p><strong>特别的对于一棵满二叉树</strong></p>
+<p>将子树节点$1-n$按顺序编号，可以发现，对于节点 $p$, 左儿子节点编号：$p×2$， 右儿子节点编号：$p×2+1$， 它的父节点编号为 $p/2$,这是满二叉树极为重要的一个性质。</p>
+<h3 id="二叉树的深度-Tree’s-Depth"><a href="#二叉树的深度-Tree’s-Depth" class="headerlink" title="二叉树的深度$(Tree’s Depth)$"></a>二叉树的深度$(Tree’s Depth)$</h3><p><strong>树的深度</strong>：该性质比较常用，例如倍增求<strong>最近公共祖先</strong>$(LCA)$,或者询问每个节点的深度；</p>
+<p>一般采用$DFS or BFS$的方法求解二叉树的深度</p>
+<p><strong>下面给出$BFS$求树的深度</strong></p>
+<p>求解时将问题看成一个最短路的问题，不过有所区别，将所有的边权看为$1$, 定义一个队列，每一次将每一层的点$x$全部加入队列中，并更新距离$dist[x]=dist[p_x]+1$,  $p_x$为$x$的父节点, 最终即可求得每个节点的深度。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">1000010</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> depth<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> q<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> h<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> e<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> ne<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> idx<span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span><span class="token keyword">int</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    e<span class="token punctuation">[</span>idx<span class="token punctuation">]</span> <span class="token operator">=</span> b<span class="token punctuation">,</span> ne<span class="token punctuation">[</span>idx<span class="token punctuation">]</span> <span class="token operator">=</span> h<span class="token punctuation">[</span>a<span class="token punctuation">]</span><span class="token punctuation">,</span> h<span class="token punctuation">[</span>a<span class="token punctuation">]</span> <span class="token operator">=</span> idx <span class="token operator">++</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">bfs</span><span class="token punctuation">(</span><span class="token keyword">int</span> root<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">memset</span><span class="token punctuation">(</span>depth<span class="token punctuation">,</span> <span class="token number">0x3f</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span> depth<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    depth<span class="token punctuation">[</span>root<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> depth<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> hh <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> tt <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    q<span class="token punctuation">[</span><span class="token operator">++</span> tt<span class="token punctuation">]</span> <span class="token operator">=</span> root<span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>hh <span class="token operator">&lt;=</span> tt<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> t <span class="token operator">=</span> q<span class="token punctuation">[</span>hh <span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> h<span class="token punctuation">[</span>t<span class="token punctuation">]</span><span class="token punctuation">;</span> i <span class="token operator">!=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">=</span> ne<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> j <span class="token operator">=</span> e<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>depth<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&gt;</span> depth<span class="token punctuation">[</span>t<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                depth<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> depth<span class="token punctuation">[</span>t<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> q<span class="token punctuation">[</span><span class="token operator">++</span> tt<span class="token punctuation">]</span> <span class="token operator">=</span> j<span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4913">例题</a></p>
+<h3 id="二叉树深度与-LCA"><a href="#二叉树深度与-LCA" class="headerlink" title="二叉树深度与$LCA$"></a>二叉树深度与$LCA$</h3><p>求<strong>最近公共祖先问题</strong>$(LCA)$ ,会有另外的篇幅来具体解释，这里简单介绍：朴素$LCA$的思路就是，点$x$向根节点搜，并且标记沿途的所有点，再从$y$点向根节点搜，直到第一个被标记过的节点，就是$x，y$的最近公共祖先，乍一看和深度没有任何关系，通过<strong>倍增</strong>优化, 先让<strong>深度较大的点</strong>跳到<strong>深度较小</strong>的点的<strong>同一高度</strong>, 然后两个点同时向根节点跳，直至相等得到最小公共祖先。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">110</span><span class="token punctuation">,</span> M <span class="token operator">=</span> N <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> n<span class="token punctuation">,</span> m<span class="token punctuation">;</span>
+<span class="token keyword">int</span> h<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> w<span class="token punctuation">[</span>M<span class="token punctuation">]</span><span class="token punctuation">,</span> e<span class="token punctuation">[</span>M<span class="token punctuation">]</span><span class="token punctuation">,</span> ne<span class="token punctuation">[</span>M<span class="token punctuation">]</span><span class="token punctuation">,</span> idx<span class="token punctuation">;</span>
 
-<h3 id="特殊的划分"><a href="#特殊的划分" class="headerlink" title="特殊的划分"></a>特殊的划分</h3><p>输入10个整数，保证十个数在0~100之间，排序</p>
-<pre class="line-numbers language-none"><code class="language-none">定义  bool basket[101] 初始化为false;
-循环输入 a 同时 basket[a] = true;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<span class="token keyword">void</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    e<span class="token punctuation">[</span>idx<span class="token punctuation">]</span> <span class="token operator">=</span> b<span class="token punctuation">,</span> ne<span class="token punctuation">[</span>idx<span class="token punctuation">]</span> <span class="token operator">=</span> h<span class="token punctuation">[</span>a<span class="token punctuation">]</span><span class="token punctuation">,</span> h<span class="token punctuation">[</span>a<span class="token punctuation">]</span> <span class="token operator">=</span> idx <span class="token operator">++</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<p>例题 ： <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1059">洛谷P1059明明的随机数</a></p>
-<p>存储图，通常会使用邻接表，邻接矩阵来存储图。邻接矩阵易于实现，但操作不便，邻接表实现起来较复杂，但易于操作。这里介绍一种简单，折中的存储方式 </p>
+<span class="token keyword">int</span> depth<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> fa<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">16</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> q<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">void</span> <span class="token function">bfs</span><span class="token punctuation">(</span><span class="token keyword">int</span> root<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">memset</span><span class="token punctuation">(</span>depth<span class="token punctuation">,</span> <span class="token number">0x3f</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span> depth<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    depth<span class="token punctuation">[</span>root<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> depth<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment">// 哨兵</span>
+    <span class="token keyword">int</span> hh <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> tt <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    q<span class="token punctuation">[</span> <span class="token operator">++</span> tt<span class="token punctuation">]</span> <span class="token operator">=</span> root<span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>hh <span class="token operator">&lt;=</span> tt<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> t <span class="token operator">=</span> q<span class="token punctuation">[</span>hh <span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> h<span class="token punctuation">[</span>t<span class="token punctuation">]</span><span class="token punctuation">;</span> i <span class="token operator">!=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">=</span> ne<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> j <span class="token operator">=</span> e<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>depth<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&gt;</span> depth<span class="token punctuation">[</span>t<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                depth<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> depth<span class="token punctuation">[</span>t<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+                q<span class="token punctuation">[</span><span class="token operator">++</span> tt<span class="token punctuation">]</span> <span class="token operator">=</span> j<span class="token punctuation">;</span>
+                fa<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> t<span class="token punctuation">;</span>
+                <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> k <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>k <span class="token operator">&lt;=</span> <span class="token number">15</span><span class="token punctuation">;</span>k <span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    fa<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">=</span> fa<span class="token punctuation">[</span>fa<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span>k <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">[</span>k <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">lca</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>depth<span class="token punctuation">[</span>a<span class="token punctuation">]</span> <span class="token operator">&lt;</span> depth<span class="token punctuation">[</span>b<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token function">swap</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> k <span class="token operator">=</span> <span class="token number">15</span><span class="token punctuation">;</span> k <span class="token operator">&gt;=</span> <span class="token number">0</span><span class="token punctuation">;</span> k <span class="token operator">--</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>depth<span class="token punctuation">[</span>fa<span class="token punctuation">[</span>a<span class="token punctuation">]</span><span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">&gt;=</span> depth<span class="token punctuation">[</span>b<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            a <span class="token operator">=</span> fa<span class="token punctuation">[</span>a<span class="token punctuation">]</span><span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>a <span class="token operator">==</span> b<span class="token punctuation">)</span> <span class="token keyword">return</span> a<span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> k <span class="token operator">=</span> <span class="token number">15</span><span class="token punctuation">;</span> k <span class="token operator">&gt;=</span> <span class="token number">0</span><span class="token punctuation">;</span> k <span class="token operator">--</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>fa<span class="token punctuation">[</span>a<span class="token punctuation">]</span><span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">!=</span> fa<span class="token punctuation">[</span>b<span class="token punctuation">]</span><span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            a <span class="token operator">=</span> fa<span class="token punctuation">[</span>a<span class="token punctuation">]</span><span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            b <span class="token operator">=</span> fa<span class="token punctuation">[</span>b<span class="token punctuation">]</span><span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> fa<span class="token punctuation">[</span>a<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// a点的父节点 ，表示a向上跳1个距离</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3884">例题</a></p>
+<h3 id="子树大小"><a href="#子树大小" class="headerlink" title="子树大小"></a>子树大小</h3><p>需要求出以每一个节点为根的子树大小（包括这个节点自己），如根节点的子树大小为$n$。</p>
+<p><strong>DFS求子树大小</strong></p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">1000010</span><span class="token punctuation">,</span> M <span class="token operator">=</span> N <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> n<span class="token punctuation">,</span> m<span class="token punctuation">,</span> sz<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> h<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> e<span class="token punctuation">[</span>M<span class="token punctuation">]</span><span class="token punctuation">,</span> ne<span class="token punctuation">[</span>M<span class="token punctuation">]</span><span class="token punctuation">,</span> idx<span class="token punctuation">;</span>
+<span class="token keyword">void</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">int</span> a <span class="token punctuation">,</span><span class="token keyword">int</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    e<span class="token punctuation">[</span>idx<span class="token punctuation">]</span> <span class="token operator">=</span> b<span class="token punctuation">,</span> ne<span class="token punctuation">[</span>idx<span class="token punctuation">]</span> <span class="token operator">=</span> h<span class="token punctuation">[</span>a<span class="token punctuation">]</span><span class="token punctuation">,</span> h<span class="token punctuation">[</span>a<span class="token punctuation">]</span> <span class="token operator">=</span> idx <span class="token operator">++</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">dfs</span><span class="token punctuation">(</span><span class="token keyword">int</span> u<span class="token punctuation">,</span> <span class="token keyword">int</span> fa<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> res <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> h<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">;</span> i <span class="token operator">!=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">=</span> ne<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>fa <span class="token operator">!=</span> e<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> res <span class="token operator">+=</span> <span class="token function">dfs</span><span class="token punctuation">(</span>e<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> u<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> sz<span class="token punctuation">[</span>u<span class="token punctuation">]</span> <span class="token operator">=</span> res<span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token comment">// dfs(root)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3915">例题</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P6591#submit">例题</a></p>
+<p><a target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/contest/38630/F">牛客</a></p>
+<h2 id="生成树-Kruskra"><a href="#生成树-Kruskra" class="headerlink" title="生成树$(Kruskra)$"></a>生成树$(Kruskra)$</h2><p>最小生成树，给定一个无向图，求出该图的最小生成树</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">2010</span><span class="token punctuation">,</span> M <span class="token operator">=</span> <span class="token number">10010</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> p<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> n<span class="token punctuation">,</span> m<span class="token punctuation">;</span>
+
+<span class="token keyword">struct</span> <span class="token class-name">edge</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> d<span class="token punctuation">;</span>
+    <span class="token keyword">bool</span> <span class="token keyword">operator</span> <span class="token operator">&lt;</span> <span class="token punctuation">(</span><span class="token keyword">const</span> edge <span class="token operator">&amp;</span> B<span class="token punctuation">)</span> <span class="token keyword">const</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> d <span class="token operator">&lt;</span> B<span class="token punctuation">.</span>d<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">find</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>x <span class="token operator">==</span> p<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">return</span> x<span class="token punctuation">;</span>
+    <span class="token keyword">else</span> <span class="token keyword">return</span> p<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>p<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+vector<span class="token operator">&lt;</span>edge<span class="token operator">&gt;</span> e<span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">kruskra</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">sort</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> e<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span> i <span class="token operator">++</span><span class="token punctuation">)</span> p<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> i<span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> e<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i <span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> a <span class="token operator">=</span> e<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>a<span class="token punctuation">,</span> b <span class="token operator">=</span> e<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>b<span class="token punctuation">,</span> d <span class="token operator">=</span> e<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>d<span class="token punctuation">;</span>
+        <span class="token keyword">int</span> pa <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">,</span> pb <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>pa <span class="token operator">!=</span> pb<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            p<span class="token punctuation">[</span>pa<span class="token punctuation">]</span> <span class="token operator">=</span> pb<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -614,7 +695,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://rufu.space/2022/06/17/base/jian-dan-de-tong-pai-xu/">http://rufu.space/2022/06/17/base/jian-dan-de-tong-pai-xu/</a>
+                    <a href="http://rufu.space/2022/09/08/mess/shu-de-pu-ji-zhi-shi-dian/">http://rufu.space/2022/09/08/mess/shu-de-pu-ji-zhi-shi-dian/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -652,8 +733,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%8E%92%E5%BA%8F/">
-                                    <span class="chip bg-color">排序</span>
+                                <a href="/tags/%E5%A4%9A%E5%8F%89%E6%A0%91/">
+                                    <span class="chip bg-color">多叉树</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%94%9F%E6%88%90%E6%A0%91/">
+                                    <span class="chip bg-color">生成树</span>
                                 </a>
                             
                         </div>
@@ -1098,46 +1183,52 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/06/17/base/yue-shu/">
+                <a href="/2022/09/08/mess/shu-de-pu-ji-zhi-shi-dian/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/39.jpg" class="responsive-img" alt="约数">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="树的基础相关">
                         
-                        <span class="card-title">约数</span>
+                        <span class="card-title">树的基础相关</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            这是一篇有关约数的随笔
+                            一些关于树的普及知识点
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-06-17
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-08
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%A8%A1%E6%9D%BF/" class="post-category">
-                                    模板
+                            <a href="/categories/%E5%9B%BE%E8%AE%BA/" class="post-category">
+                                    图论
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%95%B0%E8%AE%BA/">
-                        <span class="chip bg-color">数论</span>
+                    <a href="/tags/%E5%A4%9A%E5%8F%89%E6%A0%91/">
+                        <span class="chip bg-color">多叉树</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%94%9F%E6%88%90%E6%A0%91/">
+                        <span class="chip bg-color">生成树</span>
                     </a>
                     
                 </div>
@@ -1151,31 +1242,31 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/06/17/mess/zhen-de-shi-qian-dao-ti-ma/">
+                <a href="/2022/09/05/atcoder/abc-267/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/34.jpg" class="responsive-img" alt="真的是签到题吗">
+                        <img src="/medias/featureimages/28.jpg" class="responsive-img" alt="AtCoder Beginner Contest 267">
                         
-                        <span class="card-title">真的是签到题吗</span>
+                        <span class="card-title">AtCoder Beginner Contest 267</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            大顶堆 
+                            $ABC 267 (ABCD)$
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-17
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-05
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E9%A2%98%E8%A7%A3/" class="post-category">
-                                    题解
+                            <a href="/categories/Atcoder/" class="post-category">
+                                    Atcoder
                                 </a>
                             
                             
@@ -1185,12 +1276,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%A0%88/">
-                        <span class="chip bg-color">栈</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%A4%A7%E9%A1%B6%E5%A0%86/">
-                        <span class="chip bg-color">大顶堆</span>
+                    <a href="/tags/%E9%A2%98%E8%A7%A3/">
+                        <span class="chip bg-color">题解</span>
                     </a>
                     
                 </div>
@@ -1345,6 +1432,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
 
 
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
